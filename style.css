@@ -1,0 +1,698 @@
+:root {
+  --bg-top: #0d0b0a;
+  --bg-bottom: #241a16;
+  --panel-bg: rgba(242,224,212,0.04);
+  --panel-border: rgba(242,224,212,0.09);
+  --text-main: #f2e0d4;
+  --text-dim: #b39a8a;
+  --accent: #a86a4a;
+  --accent-light: #c98a63;
+  --track: #3b2a22;
+  --row-alt: rgba(242,224,212,0.04);
+  --row-hover: rgba(168,106,74,0.18);
+  --input-bg: rgba(242,224,212,0.06);
+  --thead-bg: #0d0b0a;
+  --grid-line: rgba(242,224,212,0.09);
+  --gauge-value-text: #f2e0d4;
+}
+
+html[data-theme="light"] {
+  --bg-top: #f2e0d4;
+  --bg-bottom: #e3c7b3;
+  --panel-bg: rgba(255,255,255,0.5);
+  --panel-border: rgba(59,42,34,0.16);
+  --text-main: #241a16;
+  --text-dim: #6b5347;
+  --accent: #a86a4a;
+  --accent-light: #7a4a34;
+  --track: #d8c0ae;
+  --row-alt: rgba(59,42,34,0.05);
+  --row-hover: rgba(168,106,74,0.16);
+  --input-bg: rgba(59,42,34,0.07);
+  --thead-bg: #241a16;
+  --grid-line: rgba(59,42,34,0.13);
+  --gauge-value-text: #241a16;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+  background: linear-gradient(160deg, var(--bg-top), var(--bg-bottom));
+  color: var(--text-main);
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+/* TOP NAVIGATION */
+.top-nav {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 0 16px;
+  height: 48px;
+  background: var(--thead-bg);
+  border-bottom: 1px solid var(--panel-border);
+}
+.top-nav-brand {
+  font-size: 13px;
+  font-weight: 600;
+  color: #f2e0d4;
+  letter-spacing: 0.3px;
+  white-space: nowrap;
+}
+.top-nav-tabs {
+  display: flex;
+  gap: 4px;
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow-x: auto;
+}
+.top-nav .tab {
+  display: inline-flex;
+  align-items: center;
+  padding: 0 14px;
+  height: 48px;
+  color: #cbb2a3;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 600;
+  border-bottom: 3px solid transparent;
+  white-space: nowrap;
+  transition: color 0.15s, border-color 0.15s;
+}
+.top-nav .tab:hover { color: #f2e0d4; }
+.top-nav .tab.active {
+  color: #f2e0d4;
+  border-bottom-color: var(--accent);
+}
+.dashboard {
+  display: grid;
+  grid-template-columns: 240px 1fr 240px;
+  gap: 14px;
+  flex: 1 1 auto;
+  min-height: 0;
+  padding: 14px;
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  min-height: 0;
+}
+
+.panel {
+  background: var(--panel-bg);
+  border: 1px solid var(--panel-border);
+  border-radius: 6px;
+  padding: 12px;
+}
+
+/* LEFT COLUMN */
+.refresh-panel {
+  flex: 0 0 auto;
+  position: relative;
+}
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background: rgba(168,106,74,0.16);
+  border: 1px solid var(--accent);
+  color: #f2e0d4;
+  border-radius: 16px;
+  height: 30px;
+  padding: 0 12px;
+  cursor: pointer;
+  flex-shrink: 0;
+  font-size: 12px;
+  font-weight: 600;
+}
+.theme-toggle svg { flex-shrink: 0; }
+.theme-toggle:hover { background: rgba(168,106,74,0.32); }
+.label {
+  font-size: 13px;
+  color: var(--text-dim);
+  margin-bottom: 4px;
+}
+.refresh-value {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.trend-panel {
+  flex: 0 0 auto;
+}
+.trend-chart {
+  height: 60px;
+  margin-top: 4px;
+}
+.trend-chart svg { width: 100%; height: 100%; display: block; }
+
+.filters-panel {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.filter-group {
+  flex: 0 0 auto;
+}
+.filter-group-grow {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  min-height: 60px;
+}
+
+.filter-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-dim);
+  margin-bottom: 6px;
+  letter-spacing: 0.3px;
+}
+
+.date-range {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.date-range input[type="date"] {
+  width: 100%;
+  background: var(--input-bg);
+  border: 1px solid var(--panel-border);
+  color: var(--text-main);
+  border-radius: 3px;
+  padding: 5px 6px;
+  font-size: 12px;
+}
+html:not([data-theme="light"]) .date-range input[type="date"] { color-scheme: dark; }
+
+.checkbox-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.checkbox-list-scroll {
+  overflow-y: auto;
+  flex: 1 1 auto;
+  padding-right: 4px;
+}
+.checkbox-list label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  cursor: pointer;
+  padding: 2px 0;
+  user-select: none;
+}
+.checkbox-list input[type="checkbox"] {
+  accent-color: var(--accent);
+  width: 13px;
+  height: 13px;
+  cursor: pointer;
+}
+
+.clear-btn {
+  flex: 0 0 auto;
+  background: var(--input-bg);
+  border: 1px solid var(--panel-border);
+  color: var(--text-main);
+  border-radius: 3px;
+  padding: 7px;
+  font-size: 12px;
+  cursor: pointer;
+}
+.clear-btn:hover {
+  background: rgba(168,106,74,0.2);
+}
+
+.bar-etapa { cursor: pointer; transition: opacity 0.15s; }
+.bar-etapa:hover { opacity: 0.85; }
+.bar-etapa.dimmed { opacity: 0.35; }
+
+/* CENTER COLUMN */
+.col-center {
+  min-width: 0;
+}
+
+.kpi-panel {
+  flex: 0 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  padding: 10px;
+}
+.kpi-card {
+  min-width: 0;
+  text-align: center;
+  padding: 4px 6px;
+  border-right: 1px solid var(--panel-border);
+}
+.kpi-card:last-child { border-right: none; }
+.kpi-label {
+  font-size: 11px;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  margin-bottom: 3px;
+}
+.kpi-value {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--accent-light);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.kpi-sub {
+  font-size: 11px;
+  color: var(--text-dim);
+  margin-top: 2px;
+}
+
+.chart-panel {
+  flex: 1 1 55%;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+.panel-title {
+  text-align: center;
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+.panel-title .hint {
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--text-dim);
+}
+.chart-area {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+.chart-area svg {
+  height: 100%;
+  display: block;
+}
+
+.table-panel {
+  flex: 1 1 45%;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  padding-top: 6px;
+}
+.table-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  padding: 0 2px 6px;
+}
+.search-box {
+  flex: 1 1 auto;
+  background: var(--input-bg);
+  border: 1px solid var(--panel-border);
+  color: var(--text-main);
+  border-radius: 3px;
+  padding: 5px 8px;
+  font-size: 12.5px;
+}
+.search-box::placeholder { color: var(--text-dim); }
+.icon-btn {
+  flex: 0 0 auto;
+  background: var(--input-bg);
+  border: 1px solid var(--panel-border);
+  color: var(--text-main);
+  border-radius: 3px;
+  width: 26px;
+  height: 26px;
+  cursor: pointer;
+  font-size: 13px;
+}
+.icon-btn:hover {
+  background: rgba(168,106,74,0.25);
+}
+
+.table-scroll {
+  flex: 1 1 auto;
+  overflow: auto;
+  min-height: 0;
+  border-radius: 4px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12.5px;
+}
+thead th {
+  position: sticky;
+  top: 0;
+  background: var(--thead-bg);
+  color: #fff;
+  text-align: left;
+  padding: 7px 8px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  z-index: 1;
+}
+.sort-arrow { font-size: 10px; color: var(--accent-light); }
+tbody td {
+  padding: 6px 8px;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  white-space: nowrap;
+}
+tbody tr:nth-child(even) { background: var(--row-alt); }
+tbody tr:hover { background: var(--row-hover); }
+.col-valor { text-align: right; }
+td.col-valor { text-align: right; font-variant-numeric: tabular-nums; }
+
+/* RIGHT COLUMN */
+.gauge-panel {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 0;
+}
+.gauge-total {
+  flex: 1.4 1 auto;
+}
+.big-title {
+  font-size: 22px;
+}
+.gauge {
+  width: 100%;
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 0;
+}
+.gauge svg {
+  width: 100%;
+  height: 100%;
+  max-height: 100%;
+}
+
+/* PROGRESS RING (count-based, e.g. Etapas Entregues) */
+.progress-ring-panel {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.progress-ring { flex: 0 0 auto; width: 64px; height: 64px; }
+.progress-ring svg { width: 100%; height: 100%; display: block; }
+.progress-ring-text {
+  flex: 1 1 auto;
+}
+.progress-ring-value { font-size: 20px; font-weight: 700; color: var(--accent-light); }
+.progress-ring-label { font-size: 12px; color: var(--text-dim); margin-top: 2px; }
+
+/* TOGGLE BUTTON GROUP (filters) */
+.toggle-group {
+  display: flex;
+  border: 1px solid var(--panel-border);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.toggle-btn {
+  flex: 1 1 auto;
+  background: var(--input-bg);
+  border: none;
+  border-right: 1px solid var(--panel-border);
+  color: var(--text-dim);
+  padding: 6px 4px;
+  font-size: 11.5px;
+  cursor: pointer;
+}
+.toggle-btn:last-child { border-right: none; }
+.toggle-btn.active {
+  background: var(--accent);
+  color: #fff;
+  font-weight: 600;
+}
+.toggle-btn:hover:not(.active) { background: rgba(168,106,74,0.15); }
+
+/* ROADMAP (contract stages timeline) */
+.roadmap-panel {
+  flex: 1 1 55%;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+.roadmap-scroll {
+  flex: 1 1 auto;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+.roadmap-item {
+  display: flex;
+  gap: 10px;
+  position: relative;
+  padding-bottom: 14px;
+}
+.roadmap-item:last-child { padding-bottom: 0; }
+.roadmap-line {
+  position: relative;
+  width: 14px;
+  flex: 0 0 auto;
+  display: flex;
+  justify-content: center;
+}
+.roadmap-line::before {
+  content: '';
+  position: absolute;
+  top: 16px;
+  bottom: -14px;
+  width: 2px;
+  background: var(--panel-border);
+}
+.roadmap-item:last-child .roadmap-line::before { display: none; }
+.roadmap-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2px solid var(--text-dim);
+  background: var(--bg-top);
+  z-index: 1;
+  flex: 0 0 auto;
+  margin-top: 2px;
+}
+.roadmap-item.done .roadmap-dot {
+  border-color: var(--accent);
+  background: var(--accent);
+  box-shadow: 0 0 0 3px rgba(168,106,74,0.2);
+}
+.roadmap-body {
+  flex: 1 1 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+  min-width: 0;
+}
+.roadmap-etapa {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--text-main);
+}
+.roadmap-item.done .roadmap-etapa { color: var(--accent-light); }
+.roadmap-desc {
+  font-size: 11.5px;
+  color: var(--text-dim);
+  margin-top: 2px;
+}
+.roadmap-right {
+  flex: 0 0 auto;
+  text-align: right;
+}
+.roadmap-valor {
+  font-size: 13px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.roadmap-status {
+  display: inline-block;
+  margin-top: 3px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+  padding: 1px 7px;
+  border-radius: 8px;
+}
+.roadmap-status.done { background: rgba(168,106,74,0.22); color: var(--accent-light); }
+.roadmap-status.pending { background: var(--input-bg); color: var(--text-dim); }
+
+/* STAT ROWS (Entregue vs Pendente breakdown) */
+.stat-rows { display: flex; flex-direction: column; gap: 12px; width: 100%; }
+.stat-row-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: var(--text-dim);
+  margin-bottom: 4px;
+}
+.stat-row-label b { color: var(--text-main); font-weight: 600; }
+.stat-row-bar {
+  height: 8px;
+  border-radius: 4px;
+  background: var(--track);
+  overflow: hidden;
+}
+.stat-row-bar-fill { height: 100%; background: var(--accent); border-radius: 4px; }
+.stat-row-bar-fill.muted { background: var(--text-dim); opacity: 0.5; }
+
+/* INFO CARD (contractor summary) */
+.info-card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+.info-card-name {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--accent-light);
+}
+.info-card-role {
+  font-size: 11.5px;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+.info-card-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2px 8px;
+  font-size: 12.5px;
+  padding-top: 8px;
+  border-top: 1px solid var(--panel-border);
+}
+.info-card-row span:first-child { color: var(--text-dim); }
+.info-card-row span:last-child { font-weight: 600; }
+
+/* scrollbars */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(168,106,74,0.35); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(168,106,74,0.55); }
+
+/* Below 1000px the layout stacks into a single column and the 3-column
+   100vh height context that lets panels "flex-grow to fill" disappears —
+   every previously flex-grown scroll area needs an explicit height here,
+   otherwise it collapses to 0 (chart/table/filters vanish). */
+@media (max-width: 1000px) {
+  .dashboard {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    /* Without this, "auto" rows stretch to fill the flex-grown height equally
+       (e.g. 3 rows of viewport-height/3 each) and any panel taller than its
+       share overflows on top of the next row instead of pushing it down. */
+    align-content: start;
+    flex: none;
+    height: auto;
+    min-height: 0;
+    padding: 10px;
+    gap: 10px;
+  }
+  .col { gap: 10px; }
+
+  .filters-panel { flex: none; overflow: visible; gap: 12px; }
+  .filter-group-grow { flex: none; min-height: 0; }
+  .checkbox-list-scroll { max-height: 180px; overflow-y: auto; }
+
+  .kpi-panel { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .kpi-card:nth-child(2n) { border-right: none; }
+  .kpi-card:nth-child(n+3) { border-top: 1px solid var(--panel-border); padding-top: 10px; }
+
+  .chart-panel { flex: none; }
+  .chart-area { height: 280px; }
+
+  .roadmap-panel { flex: none; }
+  .roadmap-scroll { max-height: 420px; overflow-y: auto; }
+
+  .table-panel { flex: none; }
+  .table-scroll { height: 360px; }
+
+  .col-right { flex-direction: row; flex-wrap: wrap; }
+  .gauge-panel { flex: none; min-width: 220px; }
+  .gauge { height: 170px; }
+  .progress-ring-panel { flex: 1 1 100%; }
+
+  /* Index page: 3 same-sized gauges (Total/Obra/Casa) sit side by side
+     instead of wrapping 2+1. The heterogeneous servicos.html right column
+     (gauge + stat rows + info card) keeps the stacked/wrap behavior above,
+     since squeezing that text into a third of the width breaks it. */
+  .gauges-row {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+  }
+  .gauges-row .gauge-panel {
+    min-width: 0;
+    padding: 8px 6px;
+  }
+  .gauges-row .panel-title { font-size: 12px; }
+  .gauges-row .big-title { font-size: 13px; }
+  .gauges-row .gauge { height: 120px; }
+
+  /* servicos.html: the other two cards (status bars, contractor info) aren't
+     gauges but share .gauge-panel, so they need their own text to shrink
+     and wrap instead of overflowing a third-width column. */
+  .gauges-row .stat-rows { gap: 10px; }
+  .gauges-row .stat-row-label { flex-wrap: wrap; font-size: 10.5px; gap: 2px 4px; }
+  .gauges-row .info-card { gap: 6px; }
+  .gauges-row .info-card-name { font-size: 13px; }
+  .gauges-row .info-card-role { font-size: 9px; }
+  .gauges-row .info-card-row {
+    flex-direction: column;
+    gap: 1px;
+    font-size: 10.5px;
+    padding-top: 6px;
+  }
+
+  .top-nav-brand { display: none; }
+}
+
+@media (max-width: 480px) {
+  .kpi-panel { grid-template-columns: minmax(0, 1fr); }
+  .kpi-card:nth-child(2n) { border-right: none; }
+  .kpi-card { border-right: none; border-top: 1px solid var(--panel-border); padding-top: 10px; }
+  .kpi-card:first-child { border-top: none; padding-top: 4px; }
+  .gauge-panel { min-width: 100%; }
+  .gauges-row .gauge-panel { min-width: 0; padding: 6px 4px; }
+  .gauges-row .gauge { height: 100px; }
+  .gauges-row .panel-title { font-size: 10.5px; }
+  .gauges-row .stat-row-label { font-size: 9.5px; }
+  .gauges-row .info-card-name { font-size: 12px; }
+  .gauges-row .info-card-role { font-size: 8px; }
+  .gauges-row .info-card-row { font-size: 9.5px; }
+  .top-nav { gap: 8px; padding: 0 10px; }
+  .top-nav .tab { padding: 0 10px; font-size: 12px; }
+}

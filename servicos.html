@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contrato Serviços - Terreno e Casa Paysage</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav class="top-nav">
+  <div class="top-nav-brand">Terreno e Casa Paysage</div>
+  <div class="top-nav-tabs">
+    <a href="index.html" class="tab">Custo Geral</a>
+    <a href="servicos.html" class="tab">Contrato Serviços</a>
+  </div>
+  <button id="themeToggle" class="theme-toggle" title="Alternar tema claro/escuro">&#9789;</button>
+</nav>
+
+<div class="dashboard">
+
+  <!-- LEFT COLUMN -->
+  <aside class="col col-left">
+    <div class="panel refresh-panel">
+      <div class="label">Ultima Atualização</div>
+      <div id="lastUpdate" class="refresh-value"></div>
+    </div>
+
+    <div class="panel progress-ring-panel">
+      <div class="progress-ring" id="progressRing"></div>
+      <div class="progress-ring-text">
+        <div id="progressValue" class="progress-ring-value">-</div>
+        <div class="progress-ring-label">etapas entregues</div>
+      </div>
+    </div>
+
+    <div class="panel filters-panel">
+      <div class="filter-group">
+        <div class="filter-title">Status</div>
+        <div class="toggle-group" id="statusFilter">
+          <button class="toggle-btn active" data-status="todas">Todas</button>
+          <button class="toggle-btn" data-status="done">Entregues</button>
+          <button class="toggle-btn" data-status="pending">Pendentes</button>
+        </div>
+      </div>
+
+      <div class="filter-group">
+        <div class="filter-title">Buscar Etapa</div>
+        <input type="text" id="searchBox" class="search-box" placeholder="Nome da etapa...">
+      </div>
+
+      <button id="clearFilters" class="clear-btn">Limpar filtros</button>
+    </div>
+  </aside>
+
+  <!-- CENTER COLUMN -->
+  <main class="col col-center">
+    <div class="panel kpi-panel">
+      <div class="kpi-card">
+        <div class="kpi-label">Total Contratado</div>
+        <div id="kpiContratado" class="kpi-value">-</div>
+        <div class="kpi-sub">21 etapas</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Total Pago</div>
+        <div id="kpiPago" class="kpi-value">-</div>
+        <div id="kpiPagoSub" class="kpi-sub"></div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Saldo a Pagar</div>
+        <div id="kpiSaldo" class="kpi-value">-</div>
+        <div class="kpi-sub">do contratado</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Etapas Entregues</div>
+        <div id="kpiEntregues" class="kpi-value">-</div>
+        <div id="kpiEntreguesSub" class="kpi-sub"></div>
+      </div>
+    </div>
+
+    <div class="panel roadmap-panel">
+      <div class="panel-title">Etapas do Contrato <span class="hint">(ordem contratual)</span></div>
+      <div id="roadmapScroll" class="roadmap-scroll"></div>
+    </div>
+
+    <div class="panel table-panel">
+      <div class="table-toolbar">
+        <div class="label" style="margin:0;">Histórico de Pagamentos</div>
+        <button id="exportCsv" class="icon-btn" title="Exportar CSV">&#8595;</button>
+      </div>
+      <div class="table-scroll">
+        <table id="paymentsTable">
+          <thead>
+            <tr>
+              <th data-key="data">Data <span class="sort-arrow"></span></th>
+              <th data-key="descricao">Descrição <span class="sort-arrow"></span></th>
+              <th data-key="sacado">Sacado <span class="sort-arrow"></span></th>
+              <th data-key="valor" class="col-valor">Valor <span class="sort-arrow"></span></th>
+              <th class="col-valor">Saldo Acumulado</th>
+            </tr>
+          </thead>
+          <tbody id="paymentsBody"></tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+
+  <!-- RIGHT COLUMN -->
+  <aside class="col col-right gauges-row">
+    <div class="panel gauge-panel">
+      <div class="panel-title">Pago vs Contratado</div>
+      <div id="gaugePago" class="gauge"></div>
+    </div>
+
+    <div class="panel gauge-panel">
+      <div class="panel-title">Valor por Status</div>
+      <div class="stat-rows">
+        <div>
+          <div class="stat-row-label"><span>Entregue</span><b id="statDoneLabel">-</b></div>
+          <div class="stat-row-bar"><div id="statDoneBar" class="stat-row-bar-fill" style="width:0%"></div></div>
+        </div>
+        <div>
+          <div class="stat-row-label"><span>Pendente</span><b id="statPendingLabel">-</b></div>
+          <div class="stat-row-bar"><div id="statPendingBar" class="stat-row-bar-fill muted" style="width:0%"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel gauge-panel">
+      <div class="info-card">
+        <div>
+          <div class="info-card-role">Prestador de Serviço</div>
+          <div class="info-card-name">Reginaldo</div>
+        </div>
+        <div class="info-card-row"><span>Adiantamentos</span><span id="infoCount">-</span></div>
+        <div class="info-card-row"><span>Último pagamento</span><span id="infoLast">-</span></div>
+      </div>
+    </div>
+  </aside>
+
+</div>
+<script src="common.js"></script>
+<script src="data-servicos.js"></script>
+<script src="servicos.js"></script>
+</body>
+</html>

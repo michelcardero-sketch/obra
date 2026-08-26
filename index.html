@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Custos - Terreno e Casa Paysage</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav class="top-nav">
+  <div class="top-nav-brand">Terreno e Casa Paysage</div>
+  <div class="top-nav-tabs">
+    <a href="index.html" class="tab">Custo Geral</a>
+    <a href="servicos.html" class="tab">Contrato Serviços</a>
+  </div>
+  <button id="themeToggle" class="theme-toggle" title="Alternar tema claro/escuro">&#9789;</button>
+</nav>
+<div class="dashboard">
+
+  <!-- LEFT COLUMN -->
+  <aside class="col col-left">
+    <div class="panel refresh-panel">
+      <div class="label">Ultima Atualização</div>
+      <div id="lastUpdate" class="refresh-value"></div>
+    </div>
+
+    <div class="panel trend-panel">
+      <div class="label">Evolução Acumulada</div>
+      <div id="trendChart" class="trend-chart"></div>
+    </div>
+
+    <div class="panel filters-panel">
+      <div class="filter-group">
+        <div class="filter-title">Pagamento</div>
+        <div class="date-range">
+          <input type="date" id="dateFrom">
+          <input type="date" id="dateTo">
+        </div>
+      </div>
+
+      <div class="filter-group">
+        <div class="filter-title">Sacado</div>
+        <div id="filterSacado" class="checkbox-list"></div>
+      </div>
+
+      <div class="filter-group">
+        <div class="filter-title">Tipo</div>
+        <div id="filterTipo" class="checkbox-list"></div>
+      </div>
+
+      <div class="filter-group filter-group-grow">
+        <div class="filter-title">Fornecedor</div>
+        <div id="filterFornecedor" class="checkbox-list checkbox-list-scroll"></div>
+      </div>
+
+      <button id="clearFilters" class="clear-btn">Limpar filtros</button>
+    </div>
+  </aside>
+
+  <!-- CENTER COLUMN -->
+  <main class="col col-center">
+    <div class="panel kpi-panel">
+      <div class="kpi-card">
+        <div class="kpi-label">Maior Lançamento</div>
+        <div id="kpiMaior" class="kpi-value">-</div>
+        <div id="kpiMaiorSub" class="kpi-sub"></div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Fornecedor Top</div>
+        <div id="kpiFornecedor" class="kpi-value">-</div>
+        <div id="kpiFornecedorSub" class="kpi-sub"></div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Ticket Médio</div>
+        <div id="kpiTicket" class="kpi-value">-</div>
+        <div id="kpiTicketSub" class="kpi-sub"></div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Lançamentos</div>
+        <div id="kpiCount" class="kpi-value">-</div>
+        <div id="kpiCountSub" class="kpi-sub"></div>
+      </div>
+    </div>
+
+    <div class="panel chart-panel">
+      <div class="panel-title">Valor por Etapa <span class="hint">(clique numa barra para filtrar)</span></div>
+      <div id="chartArea" class="chart-area"></div>
+    </div>
+
+    <div class="panel table-panel">
+      <div class="table-toolbar">
+        <input type="text" id="searchBox" class="search-box" placeholder="Buscar descrição ou fornecedor...">
+        <button id="exportCsv" class="icon-btn" title="Exportar CSV">&#8595;</button>
+      </div>
+      <div class="table-scroll">
+        <table id="dataTable">
+          <thead>
+            <tr>
+              <th data-key="data">Data <span class="sort-arrow"></span></th>
+              <th data-key="descricao">Descrição <span class="sort-arrow"></span></th>
+              <th data-key="etapa">Etapa <span class="sort-arrow"></span></th>
+              <th data-key="fornecedor">Fornecedor <span class="sort-arrow"></span></th>
+              <th data-key="sacado">Sacado <span class="sort-arrow"></span></th>
+              <th data-key="valor" class="col-valor">Valor <span class="sort-arrow"></span></th>
+            </tr>
+          </thead>
+          <tbody id="tableBody"></tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+
+  <!-- RIGHT COLUMN -->
+  <aside class="col col-right gauges-row">
+    <div class="panel gauge-panel gauge-total">
+      <div class="panel-title big-title">Total</div>
+      <div id="gaugeTotal" class="gauge"></div>
+    </div>
+    <div class="panel gauge-panel">
+      <div class="panel-title">Obra</div>
+      <div id="gaugeObra" class="gauge"></div>
+    </div>
+    <div class="panel gauge-panel">
+      <div class="panel-title">Casa</div>
+      <div id="gaugeCasa" class="gauge"></div>
+    </div>
+  </aside>
+
+</div>
+<script src="common.js"></script>
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
