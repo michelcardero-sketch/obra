@@ -3,7 +3,7 @@ setlocal
 cd /d "%~dp0"
 
 echo ============================================
-echo  Atualizando o site com os dados da planilha
+echo  Atualizando o site (dados da planilha + codigo)
 echo ============================================
 echo.
 
@@ -18,11 +18,11 @@ if errorlevel 1 (
 )
 
 echo.
-git add data.js data-servicos.js
+git add -A
 
 git diff --cached --quiet
 if errorlevel 1 (
-    git commit -m "Atualiza dados da planilha" >nul
+    git commit -m "Atualiza site" >nul
     echo.
     echo Enviando para o GitHub...
     echo (na primeira vez, uma janela do navegador pode abrir pedindo login)
@@ -43,7 +43,7 @@ if errorlevel 1 (
     echo ============================================
 ) else (
     echo.
-    echo Nenhuma mudanca nos dados desde a ultima atualizacao.
+    echo Nenhuma mudanca desde a ultima atualizacao.
 )
 
 echo.
