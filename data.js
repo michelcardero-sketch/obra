@@ -47,7 +47,7 @@ const RAW_DATA = [
   {
     "data": "2025-09-11",
     "etapa": "Terreno",
-    "descricao": "Vitoria do Terreno para Financiamento Caixa",
+    "descricao": "Vistoria do Terreno para Financiamento Caixa",
     "fornecedor": "Caixa",
     "sacado": "Michel",
     "valor": 750.0,
