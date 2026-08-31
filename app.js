@@ -10,7 +10,7 @@ const state = {
   sacado: new Set(),
   tipo: new Set(),
   fornecedor: new Set(),
-  etapaFilter: null,
+  etapaFilter: new Set(), // ctrl/cmd/shift+click a bar to add it; plain click selects only that one
   search: '',
   sortKey: 'data',
   sortDir: 'asc',
@@ -58,7 +58,7 @@ function getChartRows() {
 // Rows used by table / gauges / KPIs: all filters including the chart cross-filter.
 function getFiltered() {
   const rows = applyBaseFilters(RAW_DATA);
-  if (state.etapaFilter) return rows.filter(r => r.etapa === state.etapaFilter);
+  if (state.etapaFilter.size) return rows.filter(r => state.etapaFilter.has(r.etapa));
   return rows;
 }
 
@@ -106,8 +106,8 @@ function renderChart(chartRows) {
     const x = padL + i * (barW + gap);
     const barH = (val / niceMax) * plotH;
     const y = padT + plotH - barH;
-    const isSelected = state.etapaFilter === etapa;
-    const isDimmed = state.etapaFilter && !isSelected;
+    const isSelected = state.etapaFilter.has(etapa);
+    const isDimmed = state.etapaFilter.size > 0 && !isSelected;
     const barColor = isSelected ? cssVar('--accent-light') || accent : accent;
     barsSvg += `<g class="bar-etapa${isDimmed ? ' dimmed' : ''}" data-etapa="${etapa.replace(/"/g, '&quot;')}">
       <rect x="${x}" y="${y}" width="${barW}" height="${barH}" rx="2" fill="${barColor}"/>
@@ -130,9 +130,18 @@ function renderChart(chartRows) {
 
   area.querySelectorAll('.bar-etapa').forEach(g => {
     g.style.cursor = 'pointer';
-    g.addEventListener('click', () => {
+    g.addEventListener('click', (e) => {
       const etapa = g.dataset.etapa;
-      state.etapaFilter = state.etapaFilter === etapa ? null : etapa;
+      if (e.ctrlKey || e.metaKey || e.shiftKey) {
+        // Add/remove this bar from the selection without disturbing the rest.
+        if (state.etapaFilter.has(etapa)) state.etapaFilter.delete(etapa);
+        else state.etapaFilter.add(etapa);
+      } else if (state.etapaFilter.size === 1 && state.etapaFilter.has(etapa)) {
+        state.etapaFilter.clear(); // clicking the only selected bar again clears the filter
+      } else {
+        state.etapaFilter.clear();
+        state.etapaFilter.add(etapa);
+      }
       render();
     });
   });
@@ -245,7 +254,9 @@ function renderKpis(rows) {
   document.getElementById('kpiTicketSub').textContent = `por lançamento`;
 
   document.getElementById('kpiCount').textContent = rows.length;
-  document.getElementById('kpiCountSub').textContent = state.etapaFilter ? `em ${state.etapaFilter}` : 'lançamentos';
+  document.getElementById('kpiCountSub').textContent = state.etapaFilter.size
+    ? `em ${[...state.etapaFilter].join(', ')}`
+    : 'lançamentos';
 }
 
 /* ---------- Main render ---------- */
@@ -304,7 +315,7 @@ function init() {
   document.getElementById('clearFilters').addEventListener('click', () => {
     state.dateFrom = null; state.dateTo = null;
     state.sacado.clear(); state.tipo.clear(); state.fornecedor.clear();
-    state.etapaFilter = null; state.search = '';
+    state.etapaFilter.clear(); state.search = '';
     document.querySelectorAll('.checkbox-list input[type="checkbox"]').forEach(cb => cb.checked = false);
     document.getElementById('dateFrom').value = '';
     document.getElementById('dateTo').value = '';
