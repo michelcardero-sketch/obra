@@ -116,7 +116,7 @@ const CONTRATO_DATA = [
   {
     "etapa": "Muro",
     "descricao": "Execução de todo o muro da casa",
-    "valor": null,
+    "valor": 46558.0,
     "entregue": false
   },
   {
