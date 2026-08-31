@@ -1096,5 +1096,32 @@ const RAW_DATA = [
     "sacado": "Iasmin",
     "valor": 930.0,
     "tipo": "Obra"
+  },
+  {
+    "data": "2026-08-28",
+    "etapa": "Hidraulica",
+    "descricao": "Canos, Joelhos e Cotovelos",
+    "fornecedor": "Nascimento",
+    "sacado": "Valter",
+    "valor": 3500.0,
+    "tipo": "Obra"
+  },
+  {
+    "data": "2026-08-29",
+    "etapa": "Serviços",
+    "descricao": "Adiantamento",
+    "fornecedor": "Reginaldo",
+    "sacado": "Valter",
+    "valor": 14000.0,
+    "tipo": "Obra"
+  },
+  {
+    "data": "2026-08-30",
+    "etapa": "Elétrica",
+    "descricao": "Quadro Bifasico",
+    "fornecedor": "Mercado Livre",
+    "sacado": "Iasmin",
+    "valor": 843.66,
+    "tipo": "Obra"
   }
 ];
