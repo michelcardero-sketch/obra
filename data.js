@@ -207,6 +207,24 @@ const RAW_DATA = [
     "tipo": "Casa"
   },
   {
+    "data": "2026-08-02",
+    "etapa": "Terreno",
+    "descricao": "Financiamento",
+    "fornecedor": "Caixa",
+    "sacado": "Michel",
+    "valor": 1065.72,
+    "tipo": "Casa"
+  },
+  {
+    "data": "2026-08-02",
+    "etapa": "Terreno",
+    "descricao": "Financiamento",
+    "fornecedor": "Caixa",
+    "sacado": "Iasmin",
+    "valor": 1300.0,
+    "tipo": "Casa"
+  },
+  {
     "data": "2026-03-19",
     "etapa": "Obra - Fundação",
     "descricao": "Furos",
@@ -315,6 +333,15 @@ const RAW_DATA = [
     "tipo": "Casa"
   },
   {
+    "data": "2026-08-11",
+    "etapa": "Condominio",
+    "descricao": "Condominio",
+    "fornecedor": "Condominio",
+    "sacado": "Michel",
+    "valor": 537.03,
+    "tipo": "Casa"
+  },
+  {
     "data": "2026-06-26",
     "etapa": "Elétrica",
     "descricao": "Fita isolante",
@@ -387,6 +414,24 @@ const RAW_DATA = [
     "tipo": "Obra"
   },
   {
+    "data": "2026-08-18",
+    "etapa": "Reboco",
+    "descricao": "Pó de Pedra",
+    "fornecedor": "Distri. de Pedra e Areia",
+    "sacado": "Iasmin",
+    "valor": 2145.0,
+    "tipo": "Obra"
+  },
+  {
+    "data": "2026-08-18",
+    "etapa": "Esquadrias",
+    "descricao": "Esquadrias parcela 1 - 25%",
+    "fornecedor": "Fortline",
+    "sacado": "Iasmin",
+    "valor": 12250.0,
+    "tipo": "Obra"
+  },
+  {
     "data": "2026-05-12",
     "etapa": "Obra - Alvenaria",
     "descricao": "Aluguel Andaime",
@@ -420,6 +465,15 @@ const RAW_DATA = [
     "fornecedor": "Loca Tudo",
     "sacado": "Michel",
     "valor": 69.0,
+    "tipo": "Obra"
+  },
+  {
+    "data": "2026-08-12",
+    "etapa": "Obra - Alvenaria",
+    "descricao": "Aluguel Vibrador",
+    "fornecedor": "Loca Tudo",
+    "sacado": "Michel",
+    "valor": 760.0,
     "tipo": "Obra"
   },
   {
@@ -486,6 +540,15 @@ const RAW_DATA = [
     "tipo": "Obra"
   },
   {
+    "data": "2026-08-26",
+    "etapa": "Escada",
+    "descricao": "Madeiras - Maderite e Caibro",
+    "fornecedor": "Madebras",
+    "sacado": "Iasmin",
+    "valor": 930.0,
+    "tipo": "Obra"
+  },
+  {
     "data": "2026-05-29",
     "etapa": "Muro",
     "descricao": "Lona",
@@ -546,6 +609,15 @@ const RAW_DATA = [
     "fornecedor": "Mercado Livre",
     "sacado": "Iasmin",
     "valor": 685.37,
+    "tipo": "Obra"
+  },
+  {
+    "data": "2026-08-30",
+    "etapa": "Elétrica",
+    "descricao": "Quadro Bifasico",
+    "fornecedor": "Mercado Livre",
+    "sacado": "Iasmin",
+    "valor": 843.66,
     "tipo": "Obra"
   },
   {
@@ -783,6 +855,24 @@ const RAW_DATA = [
     "tipo": "Obra"
   },
   {
+    "data": "2026-08-18",
+    "etapa": "Reboco",
+    "descricao": "50 sacos de Cimento + Pregos",
+    "fornecedor": "Nascimento",
+    "sacado": "Valter",
+    "valor": 2030.0,
+    "tipo": "Obra"
+  },
+  {
+    "data": "2026-08-28",
+    "etapa": "Hidraulica",
+    "descricao": "Canos, Joelhos e Cotovelos",
+    "fornecedor": "Nascimento",
+    "sacado": "Valter",
+    "valor": 3500.0,
+    "tipo": "Obra"
+  },
+  {
     "data": "2026-06-15",
     "etapa": "Elétrica",
     "descricao": "Conduites 1 Polegada e meia",
@@ -882,6 +972,42 @@ const RAW_DATA = [
     "tipo": "Obra"
   },
   {
+    "data": "2026-08-15",
+    "etapa": "Serviços",
+    "descricao": "Adiantamento",
+    "fornecedor": "Reginaldo",
+    "sacado": "Michel",
+    "valor": 18000.0,
+    "tipo": "Obra"
+  },
+  {
+    "data": "2026-08-15",
+    "etapa": "Obra - Alvenaria",
+    "descricao": "Materiais comprados pelo Reginaldo",
+    "fornecedor": "Reginaldo",
+    "sacado": "Michel",
+    "valor": 850.0,
+    "tipo": "Obra"
+  },
+  {
+    "data": "2026-08-25",
+    "etapa": "Muro",
+    "descricao": "Arame",
+    "fornecedor": "Reginaldo",
+    "sacado": "Michel",
+    "valor": 140.0,
+    "tipo": "Obra"
+  },
+  {
+    "data": "2026-08-29",
+    "etapa": "Serviços",
+    "descricao": "Adiantamento",
+    "fornecedor": "Reginaldo",
+    "sacado": "Valter",
+    "valor": 14000.0,
+    "tipo": "Obra"
+  },
+  {
     "data": "2026-03-19",
     "etapa": "Obra - Inicio",
     "descricao": "Agua - Fura Fila",
@@ -933,6 +1059,15 @@ const RAW_DATA = [
     "fornecedor": "Vale Concreto",
     "sacado": "Michel",
     "valor": 9100.0,
+    "tipo": "Obra"
+  },
+  {
+    "data": "2026-08-07",
+    "etapa": "Laje",
+    "descricao": "Concreto FCK25 - 9m³ - Laje Superior",
+    "fornecedor": "Vale Concreto",
+    "sacado": "Michel",
+    "valor": 5365.0,
     "tipo": "Obra"
   },
   {
@@ -990,138 +1125,21 @@ const RAW_DATA = [
     "tipo": "Obra"
   },
   {
-    "data": "2026-08-02",
+    "data": "2026-09-02",
     "etapa": "Terreno",
     "descricao": "Financiamento",
     "fornecedor": "Caixa",
     "sacado": "Michel",
-    "valor": 1065.72,
+    "valor": 1058.13,
     "tipo": "Casa"
   },
   {
-    "data": "2026-08-02",
+    "data": "2026-09-02",
     "etapa": "Terreno",
     "descricao": "Financiamento",
     "fornecedor": "Caixa",
     "sacado": "Iasmin",
     "valor": 1300.0,
     "tipo": "Casa"
-  },
-  {
-    "data": "2026-08-11",
-    "etapa": "Condominio",
-    "descricao": "Condominio",
-    "fornecedor": "Condominio",
-    "sacado": "Michel",
-    "valor": 537.03,
-    "tipo": "Casa"
-  },
-  {
-    "data": "2026-08-07",
-    "etapa": "Laje",
-    "descricao": "Concreto FCK25 - 9m³ - Laje Superior",
-    "fornecedor": "Vale Concreto",
-    "sacado": "Michel",
-    "valor": 5365.0,
-    "tipo": "Obra"
-  },
-  {
-    "data": "2026-08-12",
-    "etapa": "Obra - Alvenaria",
-    "descricao": "Aluguel Vibrador",
-    "fornecedor": "Loca Tudo",
-    "sacado": "Michel",
-    "valor": 760.0,
-    "tipo": "Obra"
-  },
-  {
-    "data": "2026-08-15",
-    "etapa": "Serviços",
-    "descricao": "Adiantamento",
-    "fornecedor": "Reginaldo",
-    "sacado": "Michel",
-    "valor": 18000.0,
-    "tipo": "Obra"
-  },
-  {
-    "data": "2026-08-15",
-    "etapa": "Obra - Alvenaria",
-    "descricao": "Materiais comprados pelo Reginaldo",
-    "fornecedor": "Reginaldo",
-    "sacado": "Michel",
-    "valor": 850.0,
-    "tipo": "Obra"
-  },
-  {
-    "data": "2026-08-18",
-    "etapa": "Reboco",
-    "descricao": "Pó de Pedra",
-    "fornecedor": "Distri. de Pedra e Areia",
-    "sacado": "Iasmin",
-    "valor": 2145.0,
-    "tipo": "Obra"
-  },
-  {
-    "data": "2026-08-18",
-    "etapa": "Esquadrias",
-    "descricao": "Esquadrias parcela 1 - 25%",
-    "fornecedor": "Fortline",
-    "sacado": "Iasmin",
-    "valor": 12250.0,
-    "tipo": "Obra"
-  },
-  {
-    "data": "2026-08-18",
-    "etapa": "Reboco",
-    "descricao": "50 sacos de Cimento + Pregos",
-    "fornecedor": "Nascimento",
-    "sacado": "Valter",
-    "valor": 2030.0,
-    "tipo": "Obra"
-  },
-  {
-    "data": "2026-08-25",
-    "etapa": "Muro",
-    "descricao": "Arame",
-    "fornecedor": "Reginaldo",
-    "sacado": "Michel",
-    "valor": 140.0,
-    "tipo": "Obra"
-  },
-  {
-    "data": "2026-08-26",
-    "etapa": "Escada",
-    "descricao": "Madeiras - Maderite e Caibro",
-    "fornecedor": "Madebras",
-    "sacado": "Iasmin",
-    "valor": 930.0,
-    "tipo": "Obra"
-  },
-  {
-    "data": "2026-08-28",
-    "etapa": "Hidraulica",
-    "descricao": "Canos, Joelhos e Cotovelos",
-    "fornecedor": "Nascimento",
-    "sacado": "Valter",
-    "valor": 3500.0,
-    "tipo": "Obra"
-  },
-  {
-    "data": "2026-08-29",
-    "etapa": "Serviços",
-    "descricao": "Adiantamento",
-    "fornecedor": "Reginaldo",
-    "sacado": "Valter",
-    "valor": 14000.0,
-    "tipo": "Obra"
-  },
-  {
-    "data": "2026-08-30",
-    "etapa": "Elétrica",
-    "descricao": "Quadro Bifasico",
-    "fornecedor": "Mercado Livre",
-    "sacado": "Iasmin",
-    "valor": 843.66,
-    "tipo": "Obra"
   }
 ];
