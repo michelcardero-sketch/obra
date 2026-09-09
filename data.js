@@ -1186,5 +1186,14 @@ const RAW_DATA = [
     "sacado": "Valter",
     "valor": 4350.5,
     "tipo": "Obra"
+  },
+  {
+    "data": "2026-09-09",
+    "etapa": "Condominio",
+    "descricao": "Condominio",
+    "fornecedor": "Condominio",
+    "sacado": "Michel",
+    "valor": 587.03,
+    "tipo": "Casa"
   }
 ];
