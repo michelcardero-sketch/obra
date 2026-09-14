@@ -58,6 +58,69 @@ function renderProgressRing() {
   document.getElementById('progressSub').textContent = `${ETAPAS_CONCLUIDAS} concluídas · ${ETAPAS_EM_ANDAMENTO} em andamento`;
 }
 
+/* ---------- Entregue vs Pago (mini bar chart) ---------- */
+function renderEntreguePagoChart() {
+  const el = document.getElementById('entreguePagoChart');
+  const w = el.clientWidth || 400;
+  const h = el.clientHeight || 180;
+  const padL = 60, padR = 15, padT = 26, padB = 26;
+  const plotW = Math.max(20, w - padL - padR);
+  const plotH = Math.max(20, h - padT - padB);
+
+  const bars = [
+    { label: 'Entregue', valor: VALOR_EXECUTADO, color: cssVar('--accent') || '#a86a4a' },
+    { label: 'Pago', valor: TOTAL_PAGO, color: cssVar('--accent-light') || '#c98a63' },
+  ];
+  const maxVal = Math.max(bars[0].valor, bars[1].valor, 1);
+  const niceMax = maxVal * 1.2;
+
+  const gridColor = cssVar('--grid-line') || 'rgba(255,255,255,0.08)';
+  const dimText = cssVar('--text-dim') || '#b39a8a';
+  const mainText = cssVar('--text-main') || '#f2e0d4';
+
+  const yTicks = 3;
+  let gridSvg = '';
+  for (let i = 0; i <= yTicks; i++) {
+    const val = (niceMax / yTicks) * i;
+    const y = padT + plotH - (val / niceMax) * plotH;
+    gridSvg += `<line x1="${padL}" y1="${y}" x2="${w - padR}" y2="${y}" stroke="${gridColor}" stroke-width="1"/>`;
+    gridSvg += `<text x="${padL - 8}" y="${y + 4}" text-anchor="end" fill="${dimText}" font-size="11">${fmtMil(val)}</text>`;
+  }
+
+  const gap = Math.min(60, plotW * 0.15);
+  const barW = Math.min(110, (plotW - gap) / 2);
+  const totalW = barW * 2 + gap;
+  const startX = padL + (plotW - totalW) / 2;
+
+  let barsSvg = '';
+  bars.forEach((b, i) => {
+    const x = startX + i * (barW + gap);
+    const barH = (b.valor / niceMax) * plotH;
+    const y = padT + plotH - barH;
+    barsSvg += `
+      <rect x="${x}" y="${y}" width="${barW}" height="${barH}" rx="3" fill="${b.color}"/>
+      <text x="${x + barW / 2}" y="${y - 8}" text-anchor="middle" fill="${mainText}" font-size="12" font-weight="700">R$ ${fmtBRL(b.valor)}</text>
+      <text x="${x + barW / 2}" y="${padT + plotH + 18}" text-anchor="middle" fill="${mainText}" font-size="12" font-weight="600">${b.label}</text>
+    `;
+  });
+
+  const axisSvg = `<line x1="${padL}" y1="${padT + plotH}" x2="${w - padR}" y2="${padT + plotH}" stroke="${gridColor}" stroke-width="1"/>`;
+
+  el.innerHTML = `<svg viewBox="0 0 ${w} ${h}" width="${w}" style="width:${w}px;height:100%;display:block;">
+      ${gridSvg}${axisSvg}${barsSvg}
+    </svg>`;
+
+  const delta = VALOR_EXECUTADO - TOTAL_PAGO;
+  const deltaEl = document.getElementById('entreguePagoDelta');
+  if (Math.abs(delta) < 1) {
+    deltaEl.textContent = 'Valor entregue e valor pago estão equilibrados.';
+  } else if (delta > 0) {
+    deltaEl.textContent = `R$ ${fmtBRL(delta)} já entregues pela equipe e ainda não pagos.`;
+  } else {
+    deltaEl.textContent = `R$ ${fmtBRL(-delta)} pagos além do que já foi entregue.`;
+  }
+}
+
 /* ---------- Roadmap ---------- */
 function getFilteredRoadmap() {
   return CONTRATO_DATA.filter(c => {
@@ -163,6 +226,7 @@ function renderPaymentsTable() {
 /* ---------- Main render ---------- */
 function render() {
   renderProgressRing();
+  renderEntreguePagoChart();
   renderRoadmap();
   renderKpis();
   renderRightColumn();
@@ -217,6 +281,8 @@ function init() {
   });
 
   render();
+
+  window.addEventListener('resize', renderEntreguePagoChart);
 }
 
 document.addEventListener('DOMContentLoaded', init);
