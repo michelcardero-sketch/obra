@@ -3,127 +3,127 @@ const CONTRATO_DATA = [
     "etapa": "Água e Luz Padrão",
     "descricao": "Agua e Luz Padrão + Barracão",
     "valor": 1500.0,
-    "entregue": true
+    "progresso": 1.0
   },
   {
     "etapa": "Água e Luz Padrão",
     "descricao": "Agua e Luz Padrão + Barracão - Refeito",
     "valor": 750.0,
-    "entregue": true
+    "progresso": 1.0
   },
   {
     "etapa": "Fundação",
     "descricao": "Marcação de obra, execução de fundação",
     "valor": 7808.0,
-    "entregue": true
+    "progresso": 1.0
   },
   {
     "etapa": "Alvenaria",
     "descricao": "Execução de alvenaria da casa e da garagem",
     "valor": 36000.0,
-    "entregue": true
+    "progresso": 0.85
   },
   {
     "etapa": "Contra Piso",
     "descricao": "Contra-piso na casa, garagem, espaço gourmet e calçadas",
     "valor": 7051.2,
-    "entregue": false
+    "progresso": 0.0
   },
   {
     "etapa": "Sobre Piso",
     "descricao": "Piso frio na casa, na garagem, espaço gourmet e nas calçadas",
     "valor": 11000.0,
-    "entregue": false
+    "progresso": 0.0
   },
   {
     "etapa": "Reboco",
     "descricao": "Reboco na casa e na garagem",
     "valor": 48000.0,
-    "entregue": false
+    "progresso": 0.6
   },
   {
     "etapa": "Contra Marcos",
     "descricao": "Contra-marco em portas e janelas",
     "valor": 3000.0,
-    "entregue": false
+    "progresso": 0.0
   },
   {
     "etapa": "Lajes",
     "descricao": "Execução de lajes",
     "valor": 24000.0,
-    "entregue": true
+    "progresso": 1.0
   },
   {
     "etapa": "Telhado",
     "descricao": "Execução de telhado",
     "valor": 15000.0,
-    "entregue": false
+    "progresso": 0.0
   },
   {
     "etapa": "soleiras e pingadeiras",
     "descricao": "Execução de soleiras e pingadeiras",
     "valor": 1680.0,
-    "entregue": false
+    "progresso": 0.0
   },
   {
     "etapa": "Elétrica",
     "descricao": "Execução de Elétrica",
     "valor": 30000.0,
-    "entregue": true
+    "progresso": 0.5
   },
   {
     "etapa": "Hidráulica",
     "descricao": "Execução de Hidráulica",
     "valor": 30000.0,
-    "entregue": false
+    "progresso": 0.5
   },
   {
     "etapa": "Ar Condicionado",
     "descricao": "Execução de infra-estrutura para ar-condicionado",
     "valor": 1060.8,
-    "entregue": false
+    "progresso": 0.8
   },
   {
     "etapa": "Pisos e Revestimentos",
     "descricao": "Colocação de pisos e revestimentos",
     "valor": 24000.0,
-    "entregue": false
+    "progresso": 0.0
   },
   {
     "etapa": "Louças e Metais",
     "descricao": "Colocação de louças e metais",
     "valor": 1700.0,
-    "entregue": false
+    "progresso": 0.0
   },
   {
     "etapa": "Escadas",
     "descricao": "Escada Principal da Casa, Garagem e entrada da Casa",
     "valor": 10000.0,
-    "entregue": false
+    "progresso": 0.0
   },
   {
     "etapa": "Fossas",
     "descricao": "Execução das fossas sépticas",
     "valor": 5700.0,
-    "entregue": false
+    "progresso": 0.15
   },
   {
     "etapa": "Entrada de Carros",
     "descricao": "Execução da entrada de carros, com piso acabado.",
     "valor": 4000.0,
-    "entregue": false
+    "progresso": 0.0
   },
   {
     "etapa": "Muro",
     "descricao": "Execução de todo o muro da casa",
     "valor": 46558.0,
-    "entregue": false
+    "progresso": 0.8
   },
   {
     "etapa": "Finalização",
     "descricao": "Finalização de todas as etapas e realização da limpeza final da obra",
     "valor": 15000.0,
-    "entregue": false
+    "progresso": 0.0
   }
 ];
 const PAGAMENTOS_DATA = [

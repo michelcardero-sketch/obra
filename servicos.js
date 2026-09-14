@@ -3,9 +3,23 @@ const TOTAL_CONTRATADO = sum(CONTRATO_DATA.filter(c => c.valor !== null), c => c
 const TOTAL_PAGO = sum(PAGAMENTOS_DATA, p => p.valor);
 const SALDO = TOTAL_CONTRATADO - TOTAL_PAGO;
 const TOTAL_ETAPAS = CONTRATO_DATA.length;
-const ETAPAS_ENTREGUES = CONTRATO_DATA.filter(c => c.entregue).length;
-const VALOR_ENTREGUE = sum(CONTRATO_DATA.filter(c => c.entregue && c.valor !== null), c => c.valor);
-const VALOR_PENDENTE = Math.max(0, TOTAL_CONTRATADO - VALOR_ENTREGUE);
+
+// Physical progress, weighted by each etapa's contract value (not just a
+// head count) — e.g. a 50%-done R$36.000 etapa counts for more than a
+// finished R$1.500 one.
+const VALOR_EXECUTADO = sum(CONTRATO_DATA.filter(c => c.valor !== null), c => c.valor * c.progresso);
+const VALOR_PENDENTE = Math.max(0, TOTAL_CONTRATADO - VALOR_EXECUTADO);
+const PROGRESSO_PONDERADO = TOTAL_CONTRATADO > 0 ? VALOR_EXECUTADO / TOTAL_CONTRATADO : 0;
+
+const ETAPAS_CONCLUIDAS = CONTRATO_DATA.filter(c => c.progresso >= 1).length;
+const ETAPAS_EM_ANDAMENTO = CONTRATO_DATA.filter(c => c.progresso > 0 && c.progresso < 1).length;
+const ETAPAS_NAO_INICIADAS = TOTAL_ETAPAS - ETAPAS_CONCLUIDAS - ETAPAS_EM_ANDAMENTO;
+
+function statusInfo(progresso) {
+  if (progresso >= 1) return { cls: 'done', label: 'Concluída' };
+  if (progresso > 0) return { cls: 'in-progress', label: `${Math.round(progresso * 100)}% concluído` };
+  return { cls: 'not-started', label: 'Não iniciada' };
+}
 
 /* Chronological running balance, computed once so it stays stable no matter how the table is sorted */
 const PAGAMENTOS_SORTED = [...PAGAMENTOS_DATA].sort((a, b) => a.data.localeCompare(b.data));
@@ -23,10 +37,10 @@ const state = {
   sortDir: 'asc',
 };
 
-/* ---------- Progress ring (count-based) ---------- */
+/* ---------- Progress ring (weighted by contract value) ---------- */
 function renderProgressRing() {
   const el = document.getElementById('progressRing');
-  const pct = TOTAL_ETAPAS > 0 ? ETAPAS_ENTREGUES / TOTAL_ETAPAS : 0;
+  const pct = PROGRESSO_PONDERADO;
   const size = 64, stroke = 8, r = (size - stroke) / 2, c = r * 2 * Math.PI;
   const offset = c * (1 - pct);
   const track = cssVar('--track') || '#3b2a22';
@@ -40,14 +54,16 @@ function renderProgressRing() {
       transform="rotate(-90 ${size/2} ${size/2})"/>
     <text x="${size/2}" y="${size/2 + 4}" text-anchor="middle" fill="${textColor}" font-size="14" font-weight="700">${Math.round(pct*100)}%</text>
   </svg>`;
-  document.getElementById('progressValue').textContent = `${ETAPAS_ENTREGUES} / ${TOTAL_ETAPAS}`;
+  document.getElementById('progressValue').textContent = `${Math.round(pct * 100)}%`;
+  document.getElementById('progressSub').textContent = `${ETAPAS_CONCLUIDAS} concluídas · ${ETAPAS_EM_ANDAMENTO} em andamento`;
 }
 
 /* ---------- Roadmap ---------- */
 function getFilteredRoadmap() {
   return CONTRATO_DATA.filter(c => {
-    if (state.status === 'done' && !c.entregue) return false;
-    if (state.status === 'pending' && c.entregue) return false;
+    if (state.status === 'done' && c.progresso < 1) return false;
+    if (state.status === 'progress' && !(c.progresso > 0 && c.progresso < 1)) return false;
+    if (state.status === 'pending' && c.progresso > 0) return false;
     if (state.search) {
       const s = state.search.toLowerCase();
       if (!c.etapa.toLowerCase().includes(s) && !c.descricao.toLowerCase().includes(s)) return false;
@@ -65,21 +81,26 @@ function renderRoadmap() {
     return;
   }
 
-  el.innerHTML = rows.map(c => `
-    <div class="roadmap-item ${c.entregue ? 'done' : ''}">
+  el.innerHTML = rows.map(c => {
+    const st = statusInfo(c.progresso);
+    return `
+    <div class="roadmap-item ${st.cls}">
       <div class="roadmap-line"><div class="roadmap-dot"></div></div>
-      <div class="roadmap-body">
-        <div>
-          <div class="roadmap-etapa">${c.etapa}</div>
-          <div class="roadmap-desc">${c.descricao}</div>
+      <div class="roadmap-body-wrap">
+        <div class="roadmap-body">
+          <div>
+            <div class="roadmap-etapa">${c.etapa}</div>
+            <div class="roadmap-desc">${c.descricao}</div>
+          </div>
+          <div class="roadmap-right">
+            <div class="roadmap-valor">${c.valor !== null ? 'R$ ' + fmtBRL(c.valor) : 'A definir'}</div>
+            <span class="roadmap-status ${st.cls}">${st.label}</span>
+          </div>
         </div>
-        <div class="roadmap-right">
-          <div class="roadmap-valor">${c.valor !== null ? 'R$ ' + fmtBRL(c.valor) : 'A definir'}</div>
-          <span class="roadmap-status ${c.entregue ? 'done' : 'pending'}">${c.entregue ? 'Entregue' : 'Pendente'}</span>
-        </div>
+        <div class="stat-row-bar roadmap-progress-bar"><div class="stat-row-bar-fill" style="width:${Math.round(c.progresso * 100)}%"></div></div>
       </div>
-    </div>
-  `).join('');
+    </div>`;
+  }).join('');
 }
 
 /* ---------- KPIs ---------- */
@@ -88,17 +109,17 @@ function renderKpis() {
   document.getElementById('kpiPago').textContent = `R$ ${fmtBRL(TOTAL_PAGO)}`;
   document.getElementById('kpiPagoSub').textContent = `${((TOTAL_PAGO / TOTAL_CONTRATADO) * 100).toFixed(1)}% do total`;
   document.getElementById('kpiSaldo').textContent = `R$ ${fmtBRL(SALDO)}`;
-  document.getElementById('kpiEntregues').textContent = `${ETAPAS_ENTREGUES}/${TOTAL_ETAPAS}`;
-  document.getElementById('kpiEntreguesSub').textContent = `${Math.round((ETAPAS_ENTREGUES / TOTAL_ETAPAS) * 100)}% concluído`;
+  document.getElementById('kpiProgresso').textContent = `${Math.round(PROGRESSO_PONDERADO * 100)}%`;
+  document.getElementById('kpiProgressoSub').textContent = `${ETAPAS_CONCLUIDAS} concluídas · ${ETAPAS_EM_ANDAMENTO} em andamento · ${ETAPAS_NAO_INICIADAS} a iniciar`;
 }
 
 /* ---------- Right column: gauge, status bars, contractor info ---------- */
 function renderRightColumn() {
   renderGauge('gaugePago', TOTAL_PAGO, TOTAL_CONTRATADO);
 
-  const doneW = TOTAL_CONTRATADO > 0 ? (VALOR_ENTREGUE / TOTAL_CONTRATADO) * 100 : 0;
+  const doneW = TOTAL_CONTRATADO > 0 ? (VALOR_EXECUTADO / TOTAL_CONTRATADO) * 100 : 0;
   const pendW = TOTAL_CONTRATADO > 0 ? (VALOR_PENDENTE / TOTAL_CONTRATADO) * 100 : 0;
-  document.getElementById('statDoneLabel').textContent = `R$ ${fmtBRL(VALOR_ENTREGUE)}`;
+  document.getElementById('statDoneLabel').textContent = `R$ ${fmtBRL(VALOR_EXECUTADO)}`;
   document.getElementById('statPendingLabel').textContent = `R$ ${fmtBRL(VALOR_PENDENTE)}`;
   document.getElementById('statDoneBar').style.width = `${doneW}%`;
   document.getElementById('statPendingBar').style.width = `${pendW}%`;

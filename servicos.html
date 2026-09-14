@@ -29,7 +29,8 @@
       <div class="progress-ring" id="progressRing"></div>
       <div class="progress-ring-text">
         <div id="progressValue" class="progress-ring-value">-</div>
-        <div class="progress-ring-label">etapas entregues</div>
+        <div class="progress-ring-label">concluído (por valor)</div>
+        <div id="progressSub" class="progress-ring-sub">-</div>
       </div>
     </div>
 
@@ -38,8 +39,9 @@
         <div class="filter-title">Status</div>
         <div class="toggle-group" id="statusFilter">
           <button class="toggle-btn active" data-status="todas">Todas</button>
-          <button class="toggle-btn" data-status="done">Entregues</button>
-          <button class="toggle-btn" data-status="pending">Pendentes</button>
+          <button class="toggle-btn" data-status="done">Concluídas</button>
+          <button class="toggle-btn" data-status="progress">Em andamento</button>
+          <button class="toggle-btn" data-status="pending">A iniciar</button>
         </div>
       </div>
 
@@ -71,9 +73,9 @@
         <div class="kpi-sub">do contratado</div>
       </div>
       <div class="kpi-card">
-        <div class="kpi-label">Etapas Entregues</div>
-        <div id="kpiEntregues" class="kpi-value">-</div>
-        <div id="kpiEntreguesSub" class="kpi-sub"></div>
+        <div class="kpi-label">Progresso da Obra</div>
+        <div id="kpiProgresso" class="kpi-value">-</div>
+        <div id="kpiProgressoSub" class="kpi-sub"></div>
       </div>
     </div>
 
@@ -115,7 +117,7 @@
       <div class="panel-title">Valor por Status</div>
       <div class="stat-rows">
         <div>
-          <div class="stat-row-label"><span>Entregue</span><b id="statDoneLabel">-</b></div>
+          <div class="stat-row-label"><span>Executado</span><b id="statDoneLabel">-</b></div>
           <div class="stat-row-bar"><div id="statDoneBar" class="stat-row-bar-fill" style="width:0%"></div></div>
         </div>
         <div>

@@ -48,14 +48,17 @@ def export_custo_total(wb):
 def export_servicos(wb):
     ws = load_sheet(wb, "Contrato Serviços")
     contrato = []
-    for data, etapa, descricao, sacado, valor, entregue in ws.iter_rows(min_row=2, values_only=True):
+    # The "Entregue" column now holds the % andamento of each etapa (0 to 1),
+    # not a SIM/blank flag.
+    for data, etapa, descricao, sacado, valor, progresso in ws.iter_rows(min_row=2, values_only=True):
         if etapa is None:
             continue
+        pct = max(0.0, min(1.0, float(progresso))) if progresso is not None else 0.0
         contrato.append({
             "etapa": str(etapa).strip(),
             "descricao": str(descricao).strip() if descricao else "",
             "valor": round(float(valor), 2) if valor is not None else None,
-            "entregue": bool(entregue and str(entregue).strip().upper() == "SIM"),
+            "progresso": round(pct, 4),
         })
 
     ws2 = load_sheet(wb, "Pagamentos Serviços")
