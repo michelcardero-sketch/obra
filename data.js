@@ -1204,5 +1204,23 @@ const RAW_DATA = [
     "sacado": "Michel",
     "valor": 760.0,
     "tipo": "Obra"
+  },
+  {
+    "data": "2026-09-12",
+    "etapa": "Reboco",
+    "descricao": "Areia fina pra reboco",
+    "fornecedor": "Distri. de Pedra e Areia",
+    "sacado": "Valter",
+    "valor": 2470.0,
+    "tipo": "Obra"
+  },
+  {
+    "data": "2026-09-12",
+    "etapa": "Contra Piso",
+    "descricao": "Areia média grossa pra piso",
+    "fornecedor": "Distri. de Pedra e Areia",
+    "sacado": "Valter",
+    "valor": 2470.0,
+    "tipo": "Obra"
   }
 ];
