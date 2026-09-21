@@ -21,13 +21,13 @@ const CONTRATO_DATA = [
     "etapa": "Alvenaria",
     "descricao": "Execução de alvenaria da casa e da garagem",
     "valor": 36000.0,
-    "progresso": 0.85
+    "progresso": 0.95
   },
   {
     "etapa": "Contra Piso",
     "descricao": "Contra-piso na casa, garagem, espaço gourmet e calçadas",
     "valor": 7051.2,
-    "progresso": 0.0
+    "progresso": 0.5
   },
   {
     "etapa": "Sobre Piso",
@@ -39,7 +39,7 @@ const CONTRATO_DATA = [
     "etapa": "Reboco",
     "descricao": "Reboco na casa e na garagem",
     "valor": 48000.0,
-    "progresso": 0.6
+    "progresso": 0.4
   },
   {
     "etapa": "Contra Marcos",
@@ -69,19 +69,19 @@ const CONTRATO_DATA = [
     "etapa": "Elétrica",
     "descricao": "Execução de Elétrica",
     "valor": 30000.0,
-    "progresso": 0.5
+    "progresso": 0.4
   },
   {
     "etapa": "Hidráulica",
     "descricao": "Execução de Hidráulica",
     "valor": 30000.0,
-    "progresso": 0.5
+    "progresso": 0.4
   },
   {
     "etapa": "Ar Condicionado",
     "descricao": "Execução de infra-estrutura para ar-condicionado",
     "valor": 1060.8,
-    "progresso": 0.8
+    "progresso": 0.7
   },
   {
     "etapa": "Pisos e Revestimentos",
@@ -105,13 +105,13 @@ const CONTRATO_DATA = [
     "etapa": "Fossas",
     "descricao": "Execução das fossas sépticas",
     "valor": 5700.0,
-    "progresso": 0.15
+    "progresso": 0.5
   },
   {
     "etapa": "Entrada de Carros",
     "descricao": "Execução da entrada de carros, com piso acabado.",
     "valor": 4000.0,
-    "progresso": 0.0
+    "progresso": 0.3
   },
   {
     "etapa": "Muro",
@@ -196,5 +196,12 @@ const PAGAMENTOS_DATA = [
     "descricao": "Adiantamento Reginaldo",
     "sacado": "Valter",
     "valor": 14000.0
+  },
+  {
+    "data": "2026-09-21",
+    "etapa": "Adiantamento",
+    "descricao": "Adiantamento Reginaldo",
+    "sacado": "Valter",
+    "valor": 17000.0
   }
 ];

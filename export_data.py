@@ -49,11 +49,12 @@ def export_servicos(wb):
     ws = load_sheet(wb, "Contrato Serviços")
     contrato = []
     # The "Entregue" column now holds the % andamento of each etapa (0 to 1),
-    # not a SIM/blank flag.
-    for data, etapa, descricao, sacado, valor, progresso in ws.iter_rows(min_row=2, values_only=True):
+    # not a SIM/blank flag. Extra trailing columns (stray formatting with no
+    # real data) are ignored via *_.
+    for data, etapa, descricao, sacado, valor, progresso, *_ in ws.iter_rows(min_row=2, values_only=True):
         if etapa is None:
             continue
-        pct = max(0.0, min(1.0, float(progresso))) if progresso is not None else 0.0
+        pct = max(0.0, min(1.0, float(progresso))) if isinstance(progresso, (int, float)) else 0.0
         contrato.append({
             "etapa": str(etapa).strip(),
             "descricao": str(descricao).strip() if descricao else "",
@@ -63,7 +64,7 @@ def export_servicos(wb):
 
     ws2 = load_sheet(wb, "Pagamentos Serviços")
     pagamentos = []
-    for data, etapa, descricao, sacado, valor in ws2.iter_rows(min_row=2, values_only=True):
+    for data, etapa, descricao, sacado, valor, *_ in ws2.iter_rows(min_row=2, values_only=True):
         if data is None:
             continue
         pagamentos.append({
