@@ -1235,7 +1235,7 @@ const RAW_DATA = [
   {
     "data": "2026-09-25",
     "etapa": "Telhado",
-    "descricao": "Madeiras",
+    "descricao": "Madeiras para Telhado",
     "fornecedor": "Madebras",
     "sacado": "Valter",
     "valor": 38300.0,
