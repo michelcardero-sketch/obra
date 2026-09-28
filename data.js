@@ -1240,5 +1240,23 @@ const RAW_DATA = [
     "sacado": "Valter",
     "valor": 38300.0,
     "tipo": "Obra"
+  },
+  {
+    "data": "2026-09-28",
+    "etapa": "Telhado",
+    "descricao": "Manta Térmica",
+    "fornecedor": "Mercado Livre",
+    "sacado": "Iasmin",
+    "valor": 843.58,
+    "tipo": "Obra"
+  },
+  {
+    "data": "2026-09-28",
+    "etapa": "Esquadrias",
+    "descricao": "Porta da frente",
+    "fornecedor": "Antigão",
+    "sacado": "Michel",
+    "valor": 7000.0,
+    "tipo": "Obra"
   }
 ];
