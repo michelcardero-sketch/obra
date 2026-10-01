@@ -1258,5 +1258,23 @@ const RAW_DATA = [
     "sacado": "Michel",
     "valor": 7000.0,
     "tipo": "Obra"
+  },
+  {
+    "data": "2026-09-29",
+    "etapa": "Reboco",
+    "descricao": "Cimento + Bianco Quartzolit",
+    "fornecedor": "Nascimento",
+    "sacado": "Valter",
+    "valor": 2520.0,
+    "tipo": "Obra"
+  },
+  {
+    "data": "2026-10-01",
+    "etapa": "Telhado",
+    "descricao": "Madeiras para o Forro",
+    "fornecedor": "Madebras",
+    "sacado": "Valter",
+    "valor": 8375.0,
+    "tipo": "Obra"
   }
 ];
