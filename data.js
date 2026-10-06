@@ -1276,5 +1276,32 @@ const RAW_DATA = [
     "sacado": "Valter",
     "valor": 8375.0,
     "tipo": "Obra"
+  },
+  {
+    "data": "2026-10-05",
+    "etapa": "Terreno",
+    "descricao": "Financiamento",
+    "fornecedor": "Caixa",
+    "sacado": "Michel",
+    "valor": 1049.93,
+    "tipo": "Casa"
+  },
+  {
+    "data": "2026-10-05",
+    "etapa": "Terreno",
+    "descricao": "Financiamento",
+    "fornecedor": "Caixa",
+    "sacado": "Iasmin",
+    "valor": 1300.0,
+    "tipo": "Casa"
+  },
+  {
+    "data": "2026-10-05",
+    "etapa": "Telhado",
+    "descricao": "Peças de Andaime a mais 30 dias",
+    "fornecedor": "Loca Tudo",
+    "sacado": "Michel",
+    "valor": 352.0,
+    "tipo": "Obra"
   }
 ];
