@@ -1303,5 +1303,77 @@ const RAW_DATA = [
     "sacado": "Michel",
     "valor": 352.0,
     "tipo": "Obra"
+  },
+  {
+    "data": "2026-10-06",
+    "etapa": "Hidraulica",
+    "descricao": "Peças Reginaldo comprou",
+    "fornecedor": "Nascimento",
+    "sacado": "Michel",
+    "valor": 58.64,
+    "tipo": "Obra"
+  },
+  {
+    "data": "2026-10-07",
+    "etapa": "Hidraulica",
+    "descricao": "Peças Reginaldo comprou, Joelho, tubo, selante",
+    "fornecedor": "nascimento",
+    "sacado": "Michel",
+    "valor": 259.13,
+    "tipo": "Obra"
+  },
+  {
+    "data": "2026-10-08",
+    "etapa": "Reboco",
+    "descricao": "Aluguel Andaime",
+    "fornecedor": "Loca Tudo",
+    "sacado": "Michel",
+    "valor": 760.0,
+    "tipo": "Obra"
+  },
+  {
+    "data": "2026-10-08",
+    "etapa": "Hidraulica",
+    "descricao": "Joelhos e Conexões",
+    "fornecedor": "Nascimento",
+    "sacado": "Iasmin",
+    "valor": 521.34,
+    "tipo": "Obra"
+  },
+  {
+    "data": "2026-10-09",
+    "etapa": "Condominio",
+    "descricao": "Condominio",
+    "fornecedor": "Condominio",
+    "sacado": "Michel",
+    "valor": 587.03,
+    "tipo": "Casa"
+  },
+  {
+    "data": "2026-10-09",
+    "etapa": "Serviços",
+    "descricao": "Adiantamento",
+    "fornecedor": "Reginaldo",
+    "sacado": "Valter",
+    "valor": 14440.0,
+    "tipo": "Obra"
+  },
+  {
+    "data": "2026-10-14",
+    "etapa": "Telhado",
+    "descricao": "Duas Pranchas de 2,5 que faltaram",
+    "fornecedor": "Madebras",
+    "sacado": "Valter",
+    "valor": 1248.0,
+    "tipo": "Obra"
+  },
+  {
+    "data": "2026-10-15",
+    "etapa": "Hidraulica",
+    "descricao": "Flange + plugs",
+    "fornecedor": "Nascimento",
+    "sacado": "Michel",
+    "valor": 68.48,
+    "tipo": "Obra"
   }
 ];

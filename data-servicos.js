@@ -27,7 +27,7 @@ const CONTRATO_DATA = [
     "etapa": "Contra Piso",
     "descricao": "Contra-piso na casa, garagem, espaço gourmet e calçadas",
     "valor": 7051.2,
-    "progresso": 0.5
+    "progresso": 0.6
   },
   {
     "etapa": "Sobre Piso",
@@ -45,7 +45,7 @@ const CONTRATO_DATA = [
     "etapa": "Contra Marcos",
     "descricao": "Contra-marco em portas e janelas",
     "valor": 3000.0,
-    "progresso": 0.0
+    "progresso": 0.5
   },
   {
     "etapa": "Lajes",
@@ -57,7 +57,7 @@ const CONTRATO_DATA = [
     "etapa": "Telhado",
     "descricao": "Execução de telhado",
     "valor": 15000.0,
-    "progresso": 0.0
+    "progresso": 0.15
   },
   {
     "etapa": "soleiras e pingadeiras",
@@ -69,13 +69,13 @@ const CONTRATO_DATA = [
     "etapa": "Elétrica",
     "descricao": "Execução de Elétrica",
     "valor": 30000.0,
-    "progresso": 0.4
+    "progresso": 0.5
   },
   {
     "etapa": "Hidráulica",
     "descricao": "Execução de Hidráulica",
     "valor": 30000.0,
-    "progresso": 0.4
+    "progresso": 0.5
   },
   {
     "etapa": "Ar Condicionado",
@@ -105,7 +105,7 @@ const CONTRATO_DATA = [
     "etapa": "Fossas",
     "descricao": "Execução das fossas sépticas",
     "valor": 5700.0,
-    "progresso": 0.5
+    "progresso": 0.7
   },
   {
     "etapa": "Entrada de Carros",
@@ -117,7 +117,7 @@ const CONTRATO_DATA = [
     "etapa": "Muro",
     "descricao": "Execução de todo o muro da casa",
     "valor": 46558.0,
-    "progresso": 0.8
+    "progresso": 0.9
   },
   {
     "etapa": "Finalização",
@@ -203,5 +203,12 @@ const PAGAMENTOS_DATA = [
     "descricao": "Adiantamento Reginaldo",
     "sacado": "Valter",
     "valor": 17000.0
+  },
+  {
+    "data": "2026-10-09",
+    "etapa": "Adiantamento",
+    "descricao": "Adiantamento Reginaldo",
+    "sacado": "Valter",
+    "valor": 14440.0
   }
 ];
