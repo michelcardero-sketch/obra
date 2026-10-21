@@ -97,6 +97,31 @@ function exportCsv(filename, headers, rows) {
   URL.revokeObjectURL(url);
 }
 
+/* ---------- Fit-to-window scaling (desktop only) ---------- */
+const STAGE_DESIGN_H = 900; // px of height the desktop layout is designed for; lower = bigger UI
+const STAGE_MIN_W = 1200;
+const STAGE_MAX_SCALE = 2;
+
+function fitStage() {
+  const stage = document.getElementById('stage');
+  if (!stage) return;
+  const root = document.documentElement;
+  const vw = window.innerWidth, vh = window.innerHeight;
+
+  if (vw <= 1000) { // mobile/tablet: stacked layout, no scaling
+    root.classList.remove('scaled');
+    stage.style.width = stage.style.height = stage.style.transform = '';
+    return;
+  }
+  const s = Math.min(STAGE_MAX_SCALE, vh / STAGE_DESIGN_H, vw / STAGE_MIN_W);
+  root.classList.add('scaled');
+  stage.style.width = `${vw / s}px`;
+  stage.style.height = `${vh / s}px`;
+  stage.style.transform = `scale(${s})`;
+}
+fitStage();
+window.addEventListener('resize', fitStage);
+
 /* ---------- Nav: mark current page's tab active + last-update stamp ---------- */
 function initNav() {
   const path = window.location.pathname.split('/').pop() || 'index.html';

@@ -50,6 +50,21 @@ body {
   flex-direction: column;
 }
 
+/* FIT-TO-WINDOW STAGE (desktop): common.js lays the page out at a fixed design
+   height and scales it with transform to fit the window, so short screens get a
+   proportionally smaller (but identical) layout instead of squeezed panels.
+   Below 1000px it is transparent and the stacked mobile layout takes over. */
+#stage { display: contents; }
+html.scaled, html.scaled body { overflow: hidden; }
+html.scaled #stage {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform-origin: 0 0;
+}
+
 /* TOP NAVIGATION */
 .top-nav {
   flex: 0 0 auto;
