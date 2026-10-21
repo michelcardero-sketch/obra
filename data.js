@@ -1375,5 +1375,23 @@ const RAW_DATA = [
     "sacado": "Michel",
     "valor": 68.48,
     "tipo": "Obra"
+  },
+  {
+    "data": "2026-10-20",
+    "etapa": "Hidraulica",
+    "descricao": "Borrachas, ralos, cx sifonada e adesivo",
+    "fornecedor": "Nascimento",
+    "sacado": "Michel",
+    "valor": 453.06,
+    "tipo": "Obra"
+  },
+  {
+    "data": "2026-10-20",
+    "etapa": "Elétrica",
+    "descricao": "Rolo de Conduite Tigre amarelo",
+    "fornecedor": "Nascimento",
+    "sacado": "Michel",
+    "valor": 125.9,
+    "tipo": "Obra"
   }
 ];
