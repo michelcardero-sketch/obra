@@ -25,7 +25,7 @@ if errorlevel 1 (
     git commit -m "Atualiza site" >nul
     echo.
     echo Enviando para o GitHub...
-    echo (na primeira vez, uma janela do navegador pode abrir pedindo login)
+    echo Na primeira vez, uma janela do navegador pode abrir pedindo login.
     echo.
     git push
     if errorlevel 1 (

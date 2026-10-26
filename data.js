@@ -1393,5 +1393,14 @@ const RAW_DATA = [
     "sacado": "Michel",
     "valor": 125.9,
     "tipo": "Obra"
+  },
+  {
+    "data": "2026-10-26",
+    "etapa": "Serviços",
+    "descricao": "Adiantamento",
+    "fornecedor": "Reginaldo",
+    "sacado": "Valter",
+    "valor": 7200.0,
+    "tipo": "Obra"
   }
 ];
