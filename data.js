@@ -1402,5 +1402,14 @@ const RAW_DATA = [
     "sacado": "Valter",
     "valor": 7200.0,
     "tipo": "Obra"
+  },
+  {
+    "data": "2026-10-27",
+    "etapa": "Pisos e Revestimentos",
+    "descricao": "Piso dos Banheiros",
+    "fornecedor": "Leroy Merlin",
+    "sacado": "Michel",
+    "valor": 5230.29,
+    "tipo": "Obra"
   }
 ];
