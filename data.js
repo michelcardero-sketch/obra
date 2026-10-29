@@ -1429,5 +1429,23 @@ const RAW_DATA = [
     "sacado": "Valter",
     "valor": 5263.28,
     "tipo": "Obra"
+  },
+  {
+    "data": "2026-10-29",
+    "etapa": "Hidraulica",
+    "descricao": "Fita de Fixação e Parafusos",
+    "fornecedor": "Depósito Matão",
+    "sacado": "Iasmin",
+    "valor": 25.0,
+    "tipo": "Obra"
+  },
+  {
+    "data": "2026-10-29",
+    "etapa": "Elétrica",
+    "descricao": "3 caixas de maior profundidade 4x4",
+    "fornecedor": "Mercado Livre",
+    "sacado": "Iasmin",
+    "valor": 60.0,
+    "tipo": "Obra"
   }
 ];
