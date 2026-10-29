@@ -1411,5 +1411,23 @@ const RAW_DATA = [
     "sacado": "Michel",
     "valor": 5230.29,
     "tipo": "Obra"
+  },
+  {
+    "data": "2026-10-28",
+    "etapa": "Hidraulica",
+    "descricao": "Caixa de Gordura",
+    "fornecedor": "Mercado Livre",
+    "sacado": "Iasmin",
+    "valor": 382.71,
+    "tipo": "Obra"
+  },
+  {
+    "data": "2026-10-29",
+    "etapa": "Elétrica",
+    "descricao": "Fios e Disjuntores",
+    "fornecedor": "Leroy Merlin",
+    "sacado": "Valter",
+    "valor": 5263.28,
+    "tipo": "Obra"
   }
 ];
