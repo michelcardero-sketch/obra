@@ -1447,5 +1447,23 @@ const RAW_DATA = [
     "sacado": "Iasmin",
     "valor": 60.0,
     "tipo": "Obra"
+  },
+  {
+    "data": "2026-11-03",
+    "etapa": "Terreno",
+    "descricao": "Financiamento",
+    "fornecedor": "Caixa",
+    "sacado": "Michel",
+    "valor": 1042.05,
+    "tipo": "Casa"
+  },
+  {
+    "data": "2026-11-03",
+    "etapa": "Terreno",
+    "descricao": "Financiamento",
+    "fornecedor": "Caixa",
+    "sacado": "Iasmin",
+    "valor": 1300.0,
+    "tipo": "Casa"
   }
 ];
