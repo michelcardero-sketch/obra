@@ -1483,5 +1483,14 @@ const RAW_DATA = [
     "sacado": "Valter",
     "valor": 3200.0,
     "tipo": "Obra"
+  },
+  {
+    "data": "2026-11-04",
+    "etapa": "Elétrica",
+    "descricao": "Fios de 25mm e 16mm",
+    "fornecedor": "Andra",
+    "sacado": "Valter",
+    "valor": 3395.6,
+    "tipo": "Obra"
   }
 ];
