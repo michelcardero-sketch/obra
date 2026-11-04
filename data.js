@@ -1465,5 +1465,23 @@ const RAW_DATA = [
     "sacado": "Iasmin",
     "valor": 1300.0,
     "tipo": "Casa"
+  },
+  {
+    "data": "2026-11-03",
+    "etapa": "Elétrica",
+    "descricao": "Caixa de Distribuição Garagem",
+    "fornecedor": "Leroy Merlin",
+    "sacado": "Michel",
+    "valor": 55.9,
+    "tipo": "Obra"
+  },
+  {
+    "data": "2026-11-04",
+    "etapa": "Reboco",
+    "descricao": "Areia média pra fina 4 metros + 50 sacos Cimento",
+    "fornecedor": "Nascimento",
+    "sacado": "Valter",
+    "valor": 3200.0,
+    "tipo": "Obra"
   }
 ];
