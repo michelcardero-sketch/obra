@@ -1510,5 +1510,14 @@ const RAW_DATA = [
     "sacado": "Michel",
     "valor": 352.0,
     "tipo": "Obra"
+  },
+  {
+    "data": "2026-11-05",
+    "etapa": "Esquadrias",
+    "descricao": "Esquadrias parcela 1 - 25%",
+    "fornecedor": "Fortline",
+    "sacado": "Valter",
+    "valor": 12500.0,
+    "tipo": "Obra"
   }
 ];
