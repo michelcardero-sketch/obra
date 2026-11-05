@@ -1492,5 +1492,23 @@ const RAW_DATA = [
     "sacado": "Valter",
     "valor": 3395.6,
     "tipo": "Obra"
+  },
+  {
+    "data": "2026-11-05",
+    "etapa": "Reboco",
+    "descricao": "Aluguel Andaime",
+    "fornecedor": "Loca Tudo",
+    "sacado": "Michel",
+    "valor": 760.0,
+    "tipo": "Obra"
+  },
+  {
+    "data": "2026-11-05",
+    "etapa": "Telhado",
+    "descricao": "Peças de Andaime a mais 30 dias",
+    "fornecedor": "Loca Tudo",
+    "sacado": "Michel",
+    "valor": 352.0,
+    "tipo": "Obra"
   }
 ];
