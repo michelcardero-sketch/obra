@@ -1,3 +1,5 @@
+const AREA_M2 = 230; // built area used for the "custo da obra por m²" indicator
+
 /* ---------- Fixed (unfiltered) totals for gauge scale ---------- */
 const GRAND_TOTAL = sum(RAW_DATA, r => r.valor);
 const GRAND_OBRA = sum(RAW_DATA.filter(r => r.tipo === 'Obra'), r => r.valor);
@@ -279,6 +281,9 @@ function render() {
   renderGauge('gaugeTotal', total, GRAND_TOTAL * 2);
   renderGauge('gaugeObra', obra, GRAND_OBRA * 2);
   renderGauge('gaugeCasa', casa, GRAND_CASA * 2);
+
+  document.getElementById('metricM2').textContent = `R$ ${fmtBRL(obra / AREA_M2)}`;
+  document.getElementById('metricM2Sub').textContent = `R$ ${fmtBRL(obra)} ÷ ${AREA_M2} m²`;
 }
 
 /* ---------- Init ---------- */

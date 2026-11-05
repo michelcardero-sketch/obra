@@ -426,6 +426,23 @@ td.col-valor { text-align: right; font-variant-numeric: tabular-nums; }
 .big-title {
   font-size: 22px;
 }
+.metric-panel {
+  flex: 0 0 auto;
+  text-align: center;
+  padding: 12px 8px;
+}
+.metric-panel .panel-title { margin-bottom: 6px; }
+.metric-value {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--accent-light);
+  white-space: nowrap;
+}
+.metric-sub {
+  font-size: 11px;
+  color: var(--text-dim);
+  margin-top: 4px;
+}
 .gauge {
   width: 100%;
   flex: 1 1 auto;
@@ -716,6 +733,7 @@ td.col-valor { text-align: right; font-variant-numeric: tabular-nums; }
   .gauges-row .panel-title { font-size: 12px; }
   .gauges-row .big-title { font-size: 13px; }
   .gauges-row .gauge { height: 120px; }
+  .gauges-row .metric-panel { grid-column: 1 / -1; }
 
   /* servicos.html: the other two cards (status bars, contractor info) aren't
      gauges but share .gauge-panel, so they need their own text to shrink
