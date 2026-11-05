@@ -282,8 +282,9 @@ function render() {
   renderGauge('gaugeObra', obra, GRAND_OBRA * 2);
   renderGauge('gaugeCasa', casa, GRAND_CASA * 2);
 
-  document.getElementById('metricM2').textContent = `R$ ${fmtBRL(obra / AREA_M2)}`;
-  document.getElementById('metricM2Sub').textContent = `R$ ${fmtBRL(obra)} ÷ ${AREA_M2} m²`;
+  // Always the full Obra total (ignores filters), like the fixed gauge scales.
+  document.getElementById('metricM2').textContent = `R$ ${fmtBRL(GRAND_OBRA / AREA_M2)}`;
+  document.getElementById('metricM2Sub').textContent = `R$ ${fmtBRL(GRAND_OBRA)} ÷ ${AREA_M2} m²`;
 }
 
 /* ---------- Init ---------- */
