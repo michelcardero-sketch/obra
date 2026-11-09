@@ -58,7 +58,7 @@ function renderGauge(elId, value, max) {
   const polarToXY = (angle) => [cx + r * Math.cos(angle), cy - r * Math.sin(angle)];
   const [sx, sy] = polarToXY(startAngle);
   const [ex, ey] = polarToXY(endAngle);
-  const largeArc = pct > 0.5 ? 1 : 0;
+  const largeArc = 0; // the gauge is a semicircle (<= 180°), so the arc is never the "large" one
 
   const trackPath = `M ${cx - r} ${cy} A ${r} ${r} 0 1 1 ${cx + r} ${cy}`;
   const valuePath = pct > 0 ? `M ${sx} ${sy} A ${r} ${r} 0 ${largeArc} 1 ${ex} ${ey}` : '';
