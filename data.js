@@ -1519,5 +1519,32 @@ const RAW_DATA = [
     "sacado": "Valter",
     "valor": 12500.0,
     "tipo": "Obra"
+  },
+  {
+    "data": "2026-11-09",
+    "etapa": "Condominio",
+    "descricao": "Condominio",
+    "fornecedor": "Condominio",
+    "sacado": "Michel",
+    "valor": 587.03,
+    "tipo": "Casa"
+  },
+  {
+    "data": "2026-11-09",
+    "etapa": "Serviços",
+    "descricao": "Adiantamento",
+    "fornecedor": "Reginaldo",
+    "sacado": "Valter",
+    "valor": 22150.0,
+    "tipo": "Obra"
+  },
+  {
+    "data": "2026-11-09",
+    "etapa": "Telhado",
+    "descricao": "Prancha aparelhada",
+    "fornecedor": "Madebras",
+    "sacado": "Valter",
+    "valor": 725.0,
+    "tipo": "Obra"
   }
 ];
