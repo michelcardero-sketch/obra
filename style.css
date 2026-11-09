@@ -14,6 +14,9 @@
   --thead-bg: #0d0b0a;
   --grid-line: rgba(242,224,212,0.09);
   --gauge-value-text: #f2e0d4;
+  --st-done: #86b36f;
+  --st-progress: #e3ab43;
+  --st-pending: #8f7f74;
 }
 
 html[data-theme="light"] {
@@ -32,6 +35,9 @@ html[data-theme="light"] {
   --thead-bg: #241a16;
   --grid-line: rgba(59,42,34,0.13);
   --gauge-value-text: #241a16;
+  --st-done: #2f6a20;
+  --st-progress: #8a5000;
+  --st-pending: #6f5c50;
 }
 
 * { box-sizing: border-box; }
@@ -571,14 +577,16 @@ td.col-valor { text-align: right; font-variant-numeric: tabular-nums; }
   margin-top: 2px;
 }
 .roadmap-item.done .roadmap-dot {
-  border-color: var(--accent);
-  background: var(--accent);
-  box-shadow: 0 0 0 3px rgba(168,106,74,0.2);
+  border-color: var(--st-done);
+  background: var(--st-done);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--st-done) 25%, transparent);
 }
 .roadmap-item.in-progress .roadmap-dot {
-  border-color: var(--accent);
-  background: var(--bg-top);
+  border-color: var(--st-progress);
+  background: radial-gradient(circle, var(--st-progress) 38%, var(--bg-top) 42%);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--st-progress) 22%, transparent);
 }
+.roadmap-item.not-started .roadmap-dot { border-color: var(--st-pending); }
 .roadmap-body-wrap {
   flex: 1 1 auto;
   display: flex;
@@ -599,7 +607,11 @@ td.col-valor { text-align: right; font-variant-numeric: tabular-nums; }
   font-weight: 600;
   color: var(--text-main);
 }
-.roadmap-item.done .roadmap-etapa { color: var(--accent-light); }
+.roadmap-item.done .roadmap-etapa { color: var(--st-done); }
+.roadmap-item.in-progress .roadmap-etapa { color: var(--st-progress); }
+.roadmap-item.not-started .roadmap-etapa { color: var(--text-dim); }
+.roadmap-item.done .stat-row-bar-fill { background: var(--st-done); }
+.roadmap-item.in-progress .stat-row-bar-fill { background: var(--st-progress); }
 .roadmap-desc {
   font-size: 11.5px;
   color: var(--text-dim);
@@ -625,9 +637,21 @@ td.col-valor { text-align: right; font-variant-numeric: tabular-nums; }
   padding: 1px 7px;
   border-radius: 8px;
 }
-.roadmap-status.done { background: rgba(168,106,74,0.22); color: var(--accent-light); }
-.roadmap-status.in-progress { background: rgba(168,106,74,0.12); color: var(--accent); }
-.roadmap-status.not-started { background: var(--input-bg); color: var(--text-dim); }
+.roadmap-status.done { background: color-mix(in srgb, var(--st-done) 20%, transparent); color: var(--st-done); }
+.roadmap-status.in-progress { background: color-mix(in srgb, var(--st-progress) 20%, transparent); color: var(--st-progress); }
+.roadmap-status.not-started { background: color-mix(in srgb, var(--st-pending) 18%, transparent); color: var(--st-pending); }
+
+.roadmap-legend {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 4px 14px;
+  font-size: 11px;
+  color: var(--text-dim);
+  margin: -2px 0 8px;
+}
+.roadmap-legend span { display: inline-flex; align-items: center; gap: 5px; }
+.roadmap-legend i { width: 9px; height: 9px; border-radius: 50%; display: inline-block; }
 
 /* STAT ROWS (Executado vs Pendente breakdown) */
 .stat-rows { display: flex; flex-direction: column; gap: 12px; width: 100%; }

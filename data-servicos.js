@@ -39,13 +39,13 @@ const CONTRATO_DATA = [
     "etapa": "Reboco",
     "descricao": "Reboco na casa e na garagem",
     "valor": 48000.0,
-    "progresso": 0.4
+    "progresso": 0.9
   },
   {
     "etapa": "Contra Marcos",
     "descricao": "Contra-marco em portas e janelas",
     "valor": 3000.0,
-    "progresso": 0.5
+    "progresso": 1.0
   },
   {
     "etapa": "Lajes",
@@ -57,7 +57,7 @@ const CONTRATO_DATA = [
     "etapa": "Telhado",
     "descricao": "Execução de telhado",
     "valor": 15000.0,
-    "progresso": 0.15
+    "progresso": 0.5
   },
   {
     "etapa": "soleiras e pingadeiras",
@@ -81,7 +81,7 @@ const CONTRATO_DATA = [
     "etapa": "Ar Condicionado",
     "descricao": "Execução de infra-estrutura para ar-condicionado",
     "valor": 1060.8,
-    "progresso": 0.7
+    "progresso": 0.9
   },
   {
     "etapa": "Pisos e Revestimentos",
@@ -105,7 +105,7 @@ const CONTRATO_DATA = [
     "etapa": "Fossas",
     "descricao": "Execução das fossas sépticas",
     "valor": 5700.0,
-    "progresso": 0.7
+    "progresso": 0.85
   },
   {
     "etapa": "Entrada de Carros",
@@ -117,7 +117,7 @@ const CONTRATO_DATA = [
     "etapa": "Muro",
     "descricao": "Execução de todo o muro da casa",
     "valor": 46558.0,
-    "progresso": 0.9
+    "progresso": 0.95
   },
   {
     "etapa": "Finalização",
