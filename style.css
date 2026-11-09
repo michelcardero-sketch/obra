@@ -513,6 +513,18 @@ td.col-valor { text-align: right; font-variant-numeric: tabular-nums; }
   padding-top: 4px;
 }
 
+/* SPLIT ROW: two panels sharing the remaining height side by side (stacked on mobile) */
+.split-row {
+  flex: 1 1 auto;
+  display: flex;
+  gap: 14px;
+  min-height: 0;
+}
+.split-row > .panel {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
 /* ROADMAP (contract stages timeline) */
 .roadmap-panel {
   flex: 1 1 55%;
@@ -706,6 +718,8 @@ td.col-valor { text-align: right; font-variant-numeric: tabular-nums; }
   .entregue-pago-panel { flex: none; }
   .entregue-pago-panel .chart-area { height: 200px; }
 
+  .split-row { flex: none; flex-direction: column; gap: 10px; }
+  .split-row > .panel { flex: none; }
   .roadmap-panel { flex: none; }
   .roadmap-scroll { max-height: 420px; overflow-y: auto; }
 
