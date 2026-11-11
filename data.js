@@ -1546,5 +1546,23 @@ const RAW_DATA = [
     "sacado": "Valter",
     "valor": 725.0,
     "tipo": "Obra"
+  },
+  {
+    "data": "2026-11-11",
+    "etapa": "Sobre Piso",
+    "descricao": "Porcelanatos sala e piso superior",
+    "fornecedor": "Telhanorte",
+    "sacado": "Valter",
+    "valor": 19932.53,
+    "tipo": "Obra"
+  },
+  {
+    "data": "2026-11-11",
+    "etapa": "Hidraulica",
+    "descricao": "Toerneira Cozinha",
+    "fornecedor": "Pingoo",
+    "sacado": "Iasmin",
+    "valor": 110.69,
+    "tipo": "Obra"
   }
 ];
