@@ -1559,7 +1559,7 @@ const RAW_DATA = [
   {
     "data": "2026-11-11",
     "etapa": "Hidraulica",
-    "descricao": "Toerneira Cozinha",
+    "descricao": "Torneira Cozinha",
     "fornecedor": "Pingoo",
     "sacado": "Iasmin",
     "valor": 110.69,
