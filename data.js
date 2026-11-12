@@ -1564,5 +1564,23 @@ const RAW_DATA = [
     "sacado": "Iasmin",
     "valor": 110.69,
     "tipo": "Obra"
+  },
+  {
+    "data": "2026-11-11",
+    "etapa": "Soleiras e Pingadeiras",
+    "descricao": "Adiantamento Marmores",
+    "fornecedor": "Fabricio",
+    "sacado": "Valter",
+    "valor": 3000.0,
+    "tipo": "Obra"
+  },
+  {
+    "data": "2026-11-11",
+    "etapa": "Soleiras e Pingadeiras",
+    "descricao": "Lixeira da Pia",
+    "fornecedor": "Mercado Livre",
+    "sacado": "Iasmin",
+    "valor": 209.0,
+    "tipo": "Obra"
   }
 ];
