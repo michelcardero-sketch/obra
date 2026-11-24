@@ -1582,5 +1582,113 @@ const RAW_DATA = [
     "sacado": "Iasmin",
     "valor": 209.0,
     "tipo": "Obra"
+  },
+  {
+    "data": "2026-11-13",
+    "etapa": "Telhado",
+    "descricao": "60 Telhas",
+    "fornecedor": "Madebras",
+    "sacado": "Michel",
+    "valor": 316.4,
+    "tipo": "Obra"
+  },
+  {
+    "data": "2026-11-16",
+    "etapa": "Hidraulica",
+    "descricao": "Cuba da Pia Cozinha",
+    "fornecedor": "Tramontina",
+    "sacado": "Iasmin",
+    "valor": 1921.0,
+    "tipo": "Obra"
+  },
+  {
+    "data": "2026-11-18",
+    "etapa": "Elétrica",
+    "descricao": "Terminais e Fita Isolante",
+    "fornecedor": "Nascimento",
+    "sacado": "Michel",
+    "valor": 340.96,
+    "tipo": "Obra"
+  },
+  {
+    "data": "2026-11-18",
+    "etapa": "Hidraulica",
+    "descricao": "Torneiras Banheiro",
+    "fornecedor": "Pingoo",
+    "sacado": "Iasmin",
+    "valor": 324.79,
+    "tipo": "Obra"
+  },
+  {
+    "data": "2026-11-22",
+    "etapa": "Elétrica",
+    "descricao": "Fios 2,5 e 1,5 que faltaram",
+    "fornecedor": "Leroy Merlin",
+    "sacado": "Michel",
+    "valor": 1029.95,
+    "tipo": "Obra"
+  },
+  {
+    "data": "2026-11-22",
+    "etapa": "Hidraulica",
+    "descricao": "Cubas de embutir Banheiros de cima",
+    "fornecedor": "Leroy Merlin",
+    "sacado": "Michel",
+    "valor": 275.24,
+    "tipo": "Obra"
+  },
+  {
+    "data": "2026-11-22",
+    "etapa": "Elétrica",
+    "descricao": "Fios 2,5 e 1,5 que faltaram",
+    "fornecedor": "Nascimento",
+    "sacado": "Michel",
+    "valor": 1283.67,
+    "tipo": "Obra"
+  },
+  {
+    "data": "2026-11-23",
+    "etapa": "Serviços",
+    "descricao": "Adiantamento",
+    "fornecedor": "Reginaldo",
+    "sacado": "Valter",
+    "valor": 10527.0,
+    "tipo": "Obra"
+  },
+  {
+    "data": "2026-11-23",
+    "etapa": "Pisos e Revestimentos",
+    "descricao": "140 sacos de Argamassa AC3",
+    "fornecedor": "Nascimento",
+    "sacado": "Valter",
+    "valor": 4950.0,
+    "tipo": "Obra"
+  },
+  {
+    "data": "2026-11-23",
+    "etapa": "Louças e Metais",
+    "descricao": "Duto da Coifa",
+    "fornecedor": "Mercado Livre",
+    "sacado": "Iasmin",
+    "valor": 68.9,
+    "tipo": "Obra"
+  },
+  {
+    "data": "2026-11-23",
+    "etapa": "Pisos e Revestimentos",
+    "descricao": "Piso da área  externa",
+    "fornecedor": "Leroy Merlin",
+    "sacado": "Valter",
+    "valor": 5260.95,
+    "tipo": "Obra"
+  },
+  {
+    "data": "2026-11-23",
+    "etapa": "Hidraulica",
+    "descricao": "Vasos Sanitários",
+    "fornecedor": "Leroy Merlin",
+    "sacado": "Valter",
+    "valor": 2592.91,
+    "tipo": "Obra"
   }
 ];

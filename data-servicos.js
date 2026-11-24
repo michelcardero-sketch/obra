@@ -224,5 +224,12 @@ const PAGAMENTOS_DATA = [
     "descricao": "Adiantamento Reginaldo",
     "sacado": "Valter",
     "valor": 22150.0
+  },
+  {
+    "data": "2026-11-23",
+    "etapa": "Adiantamento",
+    "descricao": "Adiantamento Reginaldo",
+    "sacado": "Valter",
+    "valor": 10527.0
   }
 ];
