@@ -1690,5 +1690,32 @@ const RAW_DATA = [
     "sacado": "Valter",
     "valor": 2592.91,
     "tipo": "Obra"
+  },
+  {
+    "data": "2026-11-24",
+    "etapa": "Obra - Alvenaria",
+    "descricao": "Brita e Malha Pop",
+    "fornecedor": "Nascimento",
+    "sacado": "Michel",
+    "valor": 1590.0,
+    "tipo": "Obra"
+  },
+  {
+    "data": "2026-11-25",
+    "etapa": "Elétrica",
+    "descricao": "Fio verde 2,5",
+    "fornecedor": "Nascimento",
+    "sacado": "Iasmin",
+    "valor": 269.0,
+    "tipo": "Obra"
+  },
+  {
+    "data": "2026-11-25",
+    "etapa": "Gesso",
+    "descricao": "50% Adiantamento",
+    "fornecedor": "Fabio Gesseiro",
+    "sacado": "Valter",
+    "valor": 7164.45,
+    "tipo": "Obra"
   }
 ];
