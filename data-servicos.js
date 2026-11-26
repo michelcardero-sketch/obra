@@ -57,7 +57,7 @@ const CONTRATO_DATA = [
     "etapa": "Telhado",
     "descricao": "Execução de telhado",
     "valor": 15000.0,
-    "progresso": 0.5
+    "progresso": 0.8
   },
   {
     "etapa": "soleiras e pingadeiras",
@@ -69,19 +69,19 @@ const CONTRATO_DATA = [
     "etapa": "Elétrica",
     "descricao": "Execução de Elétrica",
     "valor": 30000.0,
-    "progresso": 0.5
+    "progresso": 0.75
   },
   {
     "etapa": "Hidráulica",
     "descricao": "Execução de Hidráulica",
     "valor": 30000.0,
-    "progresso": 0.5
+    "progresso": 0.75
   },
   {
     "etapa": "Ar Condicionado",
     "descricao": "Execução de infra-estrutura para ar-condicionado",
     "valor": 1060.8,
-    "progresso": 0.9
+    "progresso": 1.0
   },
   {
     "etapa": "Pisos e Revestimentos",
@@ -111,7 +111,7 @@ const CONTRATO_DATA = [
     "etapa": "Entrada de Carros",
     "descricao": "Execução da entrada de carros, com piso acabado.",
     "valor": 4000.0,
-    "progresso": 0.3
+    "progresso": 0.0
   },
   {
     "etapa": "Muro",
